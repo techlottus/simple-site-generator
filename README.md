@@ -1,17 +1,46 @@
+## Base Project
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+It includes a [`Design System (DS)`](https://github.com/techlottus/lottus-core-ui) as a Git submodule.
 
-## Getting Started
+## 🚀 Getting Started
 
-First, run the development server:
+Clone the repository with submodules
+
+```bash
+git clone --recurse-submodules git@github.com:empresa/base-project.git
+cd base-project
+```
+
+If you already cloned without --recurse-submodules, run:
+
+```bash
+git submodule update --init --recursive --remote
+```
+
+Install dependencies
+```bash
+# Install base-project dependencies
+npm install
+# or
+yarn install
+```
+
+```bash
+# Install Design System dependencies
+cd src/design-system
+npm install
+# or
+yarn install
+cd ../..
+```
+
+
+Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -19,8 +48,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 
-## Arquitectura del proyecto
-
+## 🏗️ Project Architecture
 ```bash
 src/
 │
@@ -39,6 +67,8 @@ src/
 │   │   └── loading.tsx
 │   ├── not-found.tsx         # Página 404 personalizada
 │   └── error.tsx             # Página de error global
+│
+├── design-system/            # Submodule (Design System)
 │
 ├── constants/                # Constantes generales
 │   ├── endpoints.ts 
@@ -69,4 +99,17 @@ src/
 │
 ├── middleware.ts             # Middleware para auth, redirects, etc.
 └── next.config.js            # Configuración de Next.js
+```
+
+## 🛠️ Useful Commands
+
+```bash
+git submodule update --remote --merge
+```
+
+```bash
+git submodule deinit -f src/design-system
+git rm -f src/design-system
+rm -rf .git/modules/src/design-system
+git commit -m "chore: remove design-system submodule"
 ```

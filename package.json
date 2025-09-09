@@ -6,12 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "npm install --prefix src/design-system"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.0"
   },
   "devDependencies": {
     "typescript": "^5",
