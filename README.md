@@ -7,18 +7,18 @@ It includes a [`Design System (DS)`](https://github.com/techlottus/lottus-core-u
 Clone the repository with submodules
 
 ```bash
-git clone --recurse-submodules git@github.com:empresa/base-project.git
+git clone --recurse-submodules https://github.com/techlottus/base-project.git
 cd base-project
 ```
 
 If you already cloned without --recurse-submodules, run:
 
 ```bash
-git submodule update --init --recursive --remote
+git submodule update --init --recursive
 ```
 
 Install dependencies
-```bash
+```bash 
 # Install base-project dependencies
 npm install
 # or
