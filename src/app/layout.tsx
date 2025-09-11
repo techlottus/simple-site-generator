@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
+import { favicon } from "../../multitenant-images"
+import links  from "../../fontlinks"
+import Script from "next/script"
 
 import "./globals.css";
 
@@ -25,6 +28,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+
+        <Script strategy="afterInteractive" src="https://fonts.googleapis.com" />
+        <Script strategy="afterInteractive" src="https://fonts.gstatic.com" />
+        <link rel="icon" href={favicon} />
+        { 
+          links.map((value: any, i: number) => {
+            return <Script
+              key={i}
+              src={value}
+              strategy="afterInteractive"
+            />
+          })
+        }
+      </head>
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased`}
       >
