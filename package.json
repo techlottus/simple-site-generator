@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "npm install --prefix src/design-system",
-    "predev": "tsx src/design-system/branding/fetch-tenant.ts",
-    "prebuild": "tsx src/design-system/branding/fetch-tenant.ts"
+    "predev": "tsx prebuild.ts",
+    "prebuild": "tsx prebuild.ts"
   },
   "dependencies": {
     "next": "^14.0.0",
