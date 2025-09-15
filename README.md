@@ -74,10 +74,12 @@ src/
 │   ├── endpoints.ts 
 │   ├── routes.ts 
 │   ├── urls.ts 
+│   ├── ...etc
 │
 ├── components/               # Componentes reutilizables
 │   ├── ui/                   # Botones, inputs, modales, etc.
 │   ├── layout/               # Header, Footer, Sidebar
+│   ├── ...etc
 │
 ├── hooks/                    # Custom Hooks (useAuth, useFetch, etc.)
 │   ├── services/             # Hooks para llamadas a servicios externos
@@ -97,8 +99,16 @@ src/
 │
 ├── types/                    # Tipos TypeScript compartidos
 │
+├── .gitmodules               # Configuración del DS
 ├── middleware.ts             # Middleware para auth, redirects, etc.
+└── eslint.config.js
 └── next.config.js            # Configuración de Next.js
+└── package-lock.json
+└── package.json
+└── postcss.config.mjs
+└── tailwind.config.js
+└── tsconfig.json
+
 ```
 
 ## 🛠️ Useful Commands
