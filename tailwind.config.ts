@@ -1,23 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 import * as tenantBase from "./tailwindBase.js";
-import * as tailwindBase from "@designsystem/branding/tailwind-base";
+import * as tailwindBase from "./src/design-system/branding/tailwind-base";
 
-module.exports = {
+export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./layouts/**/*.{js,ts,jsx,tsx}",
-    "./old-components/**/*.{js,ts,jsx,tsx}", // TODO: Delete when components migration is completed
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./forms/**/*.{js,ts,jsx,tsx}",
-    "./public/icons/**/*.{svg,jsx}"
+    "./src/design-system/components/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./public/**/*.{svg,jsx}"
   ],
   safelist: [{pattern: /bg-[a-z]*-[0-9]*/g}],
-  presets: [tailwindBase.default, tenantBase.default],
+  presets: [tailwindBase.default, (tenantBase as any).default],
   theme: {
     extend: {
-   "zIndex": {
-      "15": "15"
-   },
    "zIndex": {
       "15": "15"
    },
@@ -37,9 +31,6 @@ module.exports = {
       }
    },
    "maxWidth": {
-      "72": "18rem",
-      "78": "19.5rem",
-      "96": "24rem",
       "72": "18rem",
       "78": "19.5rem",
       "96": "24rem",
@@ -74,12 +65,8 @@ module.exports = {
       "6": "1.5rem",
       "7": "1.75rem",
       "8": "2rem",
-      "7": "1.75rem",
-      "8": "2rem",
       "10": "2.5rem",
       "13": "3.25rem",
-      "14": "3.5rem",
-      "16": "4rem",
       "14": "3.5rem",
       "16": "4rem",
       "3.5": "0.875rem",
@@ -93,7 +80,6 @@ module.exports = {
    "lineHeight": {
       "12": "3rem",
       "13": "3.75rem",
-      "14": "3.5rem",
       "14": "3.5rem",
       "16": "4rem",
       "5.2": "1.3rem",

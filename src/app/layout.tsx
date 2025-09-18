@@ -1,20 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
 import { favicon } from "../../multitenant-images"
 import links  from "../../fontlinks"
-import Script from "next/script"
-
+import '../../public/fonts/local-fonts.css'
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--geist-sans",
-});
-
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  variable: "--geist-mono",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,21 +18,22 @@ export default function RootLayout({
     <html lang="en">
       <head>
 
-        <Script strategy="afterInteractive" src="https://fonts.googleapis.com" />
-        <Script strategy="afterInteractive" src="https://fonts.gstatic.com" />
+        <link rel="stylesheet" href="../../public/fonts/local-fonts.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com" />
+        <link rel="stylesheet" href="https://fonts.gstatic.com" />
         <link rel="icon" href={favicon} />
         { 
           links.map((value: any, i: number) => {
-            return <Script
+            return <link rel="stylesheet"
               key={i}
-              src={value}
-              strategy="afterInteractive"
+              href={value}
+            
             />
           })
         }
       </head>
       <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased`}
+        className="font-headings bg-surface-0"
       >
         {children}
       </body>
