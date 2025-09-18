@@ -25,16 +25,6 @@ npm install
 yarn install
 ```
 
-```bash
-# Install Design System dependencies
-cd src/design-system
-npm install
-# or
-yarn install
-cd ../..
-```
-
-
 Run the development server:
 
 ```bash
