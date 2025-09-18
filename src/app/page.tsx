@@ -51,9 +51,10 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+        <p>Este es un boton consumido del DS ⬇️</p>
         <Button className="w-max" size="sm" intent="primary">
                   Entrar
-                </Button>
+        </Button>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
