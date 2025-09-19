@@ -7,12 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "git submodule update --init --recursive && npm install --prefix src/design-system"
+    "postinstall": "git submodule update --init --recursive && npm install --prefix src/design-system",
+    "predev": "tsx prebuild.ts",
+    "prebuild": "tsx prebuild.ts"
   },
   "dependencies": {
     "next": "14.2.20",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
@@ -21,9 +24,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.4.1",
-    "tailwindcss": "^4",
+    "postcss-import": "^16.1.1",
+    "postcss-nesting": "^13.0.2",
     "tsx": "^4.20.5",
     "typescript": "^5"
   }

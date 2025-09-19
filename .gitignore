@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Branding files
+src/styles/fonts.css
+multitenant-images.ts
+multitenant-errors.ts
+fontlinks.ts
+tailwindBase.js
+public/favicon.ico

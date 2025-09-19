@@ -1,17 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
-
+import { favicon } from "../../multitenant-images"
+import links  from "../../fontlinks"
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--geist-sans",
-});
-
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  variable: "--geist-mono",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,8 +15,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+
+        <link rel="stylesheet" href="../../public/fonts/local-fonts.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com" />
+        <link rel="stylesheet" href="https://fonts.gstatic.com" />
+        <link rel="icon" href={favicon} />
+        { 
+          links.map((value: any, i: number) => {
+            return <link rel="stylesheet"
+              key={i}
+              href={value}
+            
+            />
+          })
+        }
+      </head>
       <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased`}
+        className="font-headings bg-surface-0"
       >
         {children}
       </body>
