@@ -32,6 +32,10 @@ export default function Home() {
         <div className="w-[40px] h-[40px] bg-primary-800 rounded-[10px]"></div>
         <div className="w-[40px] h-[40px] bg-primary-900 rounded-[10px]"></div>
         <div className="w-[40px] h-[40px] bg-primary-950 rounded-[10px]"></div>
+        <div className="w-[40px] h-[40px] bg-error-500 rounded-[10px]">e</div>
+        <div className="w-[40px] h-[40px] bg-success-500 rounded-[10px]">s</div>
+        <div className="w-[40px] h-[40px] bg-warning-500 rounded-[10px]">w</div>
+        <div className="w-[40px] h-[40px] bg-info-500 rounded-[10px]">i</div>
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
