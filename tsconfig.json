@@ -21,7 +21,14 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@design-system/*": ["design-system/*"]
+      "@design-system/*": ["design-system/*"],
+      "@assets/*": ["assets/*"],
+      "@styles/*": ["styles/*"],
+      "@constants/*": ["constants/*"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@lib/*": ["lib/*"],
+      "@types/*": ["types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.js", "public/fonts/**/*.otf"],

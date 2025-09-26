@@ -12,7 +12,11 @@ export default function Home() {
           height={38}
           priority
         />
-        <h1 className='font-headings'>Hola soy tu amigo Goku!</h1>
+        <h1 className='font-headings'>poppins</h1>
+        <h1 className='font-texts'>tambien nunito</h1>
+        <h1 >por defsult toma nunito</h1>
+        <span className="font-icons-solid">download</span>
+        <span className="font-icons-outlined">check</span>
         <div>
           <p>Este es un boton consumido del DS ⬇️</p>
           <Button size="sm" intent="primary">
