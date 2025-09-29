@@ -1,9 +1,0 @@
-
-/* @import '../design-system/fonts/local-fonts'; */
-/* TODO: implement local fonts for bunday (ULA) */
-@import "../styles/fonts.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-

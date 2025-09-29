@@ -1,0 +1,30 @@
+
+/* @import '../design-system/fonts/local-fonts'; */
+/* TODO: implement local fonts for bunday (ULA) */
+@import "./fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  @apply font-poppins;
+}
+
+.header-gradient {
+  background: conic-gradient(from 79deg at 54.62% 63.33%, #01395D 176.5384590625763deg, #00405A 268.21433544158936deg, #021135 358.61969232559204deg);
+}
+
+.font-title {
+  font-family: var(--font-poppins), 'Poppins', sans-serif !important;
+}
+
+/* Container query responsive text for Select */
+.select-responsive-text {
+  container-type: inline-size;
+}
+
+.select-responsive-text span,
+.select-responsive-text p {
+  font-size: clamp(0.75rem, 4cqw, 1rem);
+}

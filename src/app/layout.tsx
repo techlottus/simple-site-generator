@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { favicon } from "../../multitenant-images"
-import links  from "../../fontlinks"
-import "./globals.css";
+import "@styles/globals.css";
+import '@styles/material-icons.css';
+import links  from "../../fontlinks";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,7 +33,7 @@ export default function RootLayout({
         }
       </head>
       <body
-        className="font-headings bg-surface-0"
+        className="bg-surface-0 font-sans"
       >
         {children}
       </body>
