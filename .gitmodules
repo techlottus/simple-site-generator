@@ -1,4 +1,4 @@
 [submodule "src/design-system"]
     path = src/design-system
-    url = https://x-access-token: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@github.com/techlottus/lottus-core-ui.git
+    url = https://github.com/techlottus/lottus-core-ui.git
 	branch = develop
