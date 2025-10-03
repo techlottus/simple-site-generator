@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { favicon } from "../../multitenant-images"
 import "@styles/globals.css";
 import '@styles/material-icons.css';
+import { BundaySansFont } from "@design-system/fonts/BundaySans/BundaySans";
+import { BundaySansUpFont } from "@design-system/fonts/BundaySansUp/BundaySansUp";
 import links  from "../../fontlinks";
 
 export const metadata: Metadata = {
@@ -15,10 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${BundaySansFont.variable}`}>
       <head>
-
-        <link rel="stylesheet" href="../../public/fonts/local-fonts.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com" />
         <link rel="stylesheet" href="https://fonts.gstatic.com" />
         <link rel="icon" href={favicon} />

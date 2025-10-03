@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "git submodule update --init --recursive && npm install --prefix src/design-system",
+    "postinstall": "bash ./scripts/init-submodules.sh",
     "predev": "tsx prebuild.ts",
     "prebuild": "tsx prebuild.ts"
   },
