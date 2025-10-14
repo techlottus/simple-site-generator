@@ -21,14 +21,22 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@design-system/*": ["design-system/*"],
+      "@design-system/*": ["./design-system/*"],
       "@assets/*": ["assets/*"],
       "@styles/*": ["styles/*"],
       "@constants/*": ["constants/*"],
-      "@components/*": ["components/*"],
+      "@/components/*": ["./components/*"],
       "@hooks/*": ["hooks/*"],
       "@lib/*": ["lib/*"],
-      "@types/*": ["types/*"]
+      "@types/*": ["types/*"],
+      "@/layouts/*": ["./layouts/*"],
+      "@/icons/*": ["../public/icons/*"],
+      "@/images/*": ["../public/images/*"],
+      "@/utils/*": ["../utils/*"],
+      "@/config/*": ["../config/*"],
+      "@/multitenant-images": ["multitenant-images.ts"],
+      "@/multitenant-errors": ["multitenant-errors.ts"],
+      "@/general-config": ["GeneralConfig.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.js", "public/fonts/**/*.otf"],

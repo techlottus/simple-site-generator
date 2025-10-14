@@ -1,0 +1,11 @@
+.text-content-section {
+  markdown {
+    @apply grid mobile:grid-cols-4 tablet:grid-cols-8 desktop:grid-cols-12;
+    & > * {
+      @apply mobile:col-span-4 tablet:col-span-8 desktop:col-span-12;
+      &:not(table) {
+        @apply desktop:col-span-8;
+      }
+    }
+  }
+}
