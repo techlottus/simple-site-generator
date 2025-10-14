@@ -49,3 +49,5 @@ multitenant-errors.ts
 fontlinks.ts
 tailwindBase.js
 public/favicon.ico
+
+package-lock.json
