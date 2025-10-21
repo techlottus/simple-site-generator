@@ -1,8 +1,8 @@
 import { TableSectionType } from '@/utils/strapi/sections/TableSection'
 import React, { FC } from 'react'
-import Table from '../lottus-education/Table';
+import Table from '@design-system/components/Table/Table';
 import Container from '@/layouts/Container.layout';
-import { MarkdownRenderer } from '../lottus-education/MarkdownRenderer';
+import { MarkdownRenderer } from '@design-system/components/MarkDownRenderer/MarkdownRenderer';
 
 
 const TableSection: FC<TableSectionType> = (props: TableSectionType) => {

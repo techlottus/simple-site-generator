@@ -1,9 +1,9 @@
 import { FC } from "react"
 import Container from "@/layouts/Container.layout";
-import Image from "@/old-components/Image";
-import Aspect from "@/components/Aspect";
+import Image from "@design-system/components/Image/Image";
+import Aspect from "@design-system/components/Aspect/Aspect";
 import  {IntroductionImageSection} from "@/utils/strapi/sections/IntroductionImage";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const IntroductionImage: FC<IntroductionImageSection> = (props: IntroductionImageSection) => {
 

@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 import Container from "@/layouts/Container.layout";
 import ContactTargetCard from "@/components/ContactTargetCard";
 import type { ContactTargetListSection } from "@/utils/strapi/sections/ContactTargetList";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const ContactTargetList: FC<ContactTargetListSection> = memo((props: ContactTargetListSection) => {
   const { title, subtitle, cards, descriptionTarget } = props

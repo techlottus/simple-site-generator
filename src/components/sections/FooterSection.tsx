@@ -1,9 +1,9 @@
 import { FC, Fragment } from "react"
 import Link from "next/link"
 import cn from "classnames"
-import Image from "@/old-components/Image"
-import Icon from "@/old-components/Icon"
-import LinkContactTarget from "@/old-components/LinkContactTarget"
+import Image from "@design-system/components/Image/Image"
+import Icon from "@design-system/components/Icon/Icon"
+import LinkContactTarget from "@/components/LinkContactTarget"
 import FooterLogo from "@/components/sections/footer/logo"
 import { FooterColumnItem, FooterGroup, FooterSection as Footersection } from "@/utils/getFooters"
 
@@ -39,13 +39,13 @@ const FooterSection: FC<FooterSect> = ({
             {
               social_medias.data && social_medias.data.map((item: any, i: number) => <Link key={`social-${i}`} href={item.attributes.href} passHref target={"_blank"}>
 
-                <Icon name={item.attributes.icon_name} className="w-8 h-8 text-surface-500 w-p:text-balck" />
+                <Icon iconName={item.attributes.icon_name} className="w-8 h-8 text-surface-500 w-p:text-balck" />
               </Link>)
             }
             {
               phone &&
               <div className="flex items-center gap-1">
-                <Icon name={phone.icon_name} className="w-3 h-3" />
+                <Icon iconName={phone.icon_name} className="w-3 h-3" />
                 <LinkContactTarget type="tel" info={`${phone.phone}`}/>
               </div>
             }

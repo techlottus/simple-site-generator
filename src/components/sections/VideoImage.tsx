@@ -1,10 +1,10 @@
 import React from 'react'
-import { VideoImageData } from "../../utils/strapi/sections/VideoImageSection";
-import Aspect from "../Aspect";
-import Button from "@/old-components/Button/Button";
+import { VideoImageData } from "@/utils/strapi/sections/VideoImageSection";
+import Aspect from "@design-system/components/Aspect/Aspect";
+import Button from "@design-system/components/Button/Button";
 import { useRouter } from "next/router";
 import ContentLayout from "@/layouts/Content.layout";
-import RichtText from '@/old-components/Richtext/Richtext';
+import {RichTextRenderer} from '@design-system/components/RichTextRenderer/RichTextRenderer';
 import cn from "classnames";
 
 const VideoImage: React.FC<VideoImageData> = (props: VideoImageData) => {
@@ -22,9 +22,7 @@ const VideoImage: React.FC<VideoImageData> = (props: VideoImageData) => {
     <ContentLayout classNames="w-full">
       <div className="col-span-12 w-t:col-span-8 w-p:col-span-4">
         <h2 className="font-headings text-10 font-bold leading-tight w-t:text-6 w-p:text-6 mb-6">{title}</h2>
-        <RichtText data={{
-          content: subtitle
-        }} />
+        <RichTextRenderer content={subtitle} />
       </div>
       {
         images.length > 0
@@ -60,16 +58,12 @@ const VideoImage: React.FC<VideoImageData> = (props: VideoImageData) => {
       {
         button
           ? <div className="col-span-12 w-t:col-span-8 w-p:col-span-4 object-center flex justify-center tablet:mt-18">
-            <Button dark data={{
-              type: button?.variant,
-              title: button?.label,
-              icon: button?.iconName,
-              size: "small",
-              lyIcon: false,
-              disabled: false,
-              isExpand: true,
-            }}
-              onClick={() => router?.push(button?.CTA)} />
+            <Button 
+            variant={button?.variant === 'outlined' ? 'outline' : 'solid'}
+            icon={button?.iconName}
+            size={'sm'}
+            className='w-full'
+              onClick={() => router?.push(button?.CTA)}>{button?.label}</Button>
           </div>
           : null
       }

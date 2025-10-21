@@ -4,7 +4,7 @@ import { button } from "./RichTextImage";
 export type RichTextVideoSection = {
   type: "ComponentSectionsRichTextVideo";
   title: string;
-  text: BlocksContent | string;
+  text: BlocksContent;
   providerId:string;
   provider:'Youtube'|'Vimeo';
   videoPosition: "left" | "right";

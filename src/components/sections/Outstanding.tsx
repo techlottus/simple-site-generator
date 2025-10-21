@@ -1,12 +1,10 @@
 import { FC } from "react";
-import Image from "@/old-components/Image";
-import parseEditorRawData from "@/utils/parseEditorRawData";
-import RichtText from "@/old-components/Richtext/Richtext";
+import Image from "@design-system/components/Image/Image";
 import cn from "classnames";
-import Button from "@/old-components/Button/Button";
-import Aspect from "@/components/Aspect";
+import Button from "@design-system/components/Button/Button";
+import Aspect from "@design-system/components/Aspect/Aspect";
 import { OutstandingSection } from "@/utils/strapi/sections/OutstandingList";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const Outstanding: FC<OutstandingSection> = (props: OutstandingSection) => {
 
@@ -58,13 +56,11 @@ const Outstanding: FC<OutstandingSection> = (props: OutstandingSection) => {
                 content ? <div className="dark"><RichTextRenderer className={outstandingContentVariant === "light" ? "text-surface-0" : "text-surface-900"} content= {content} /></div> : null
               }
               {button ? (
-                <Button darkOutlined={button.variant === "outlined_negative"} dark={button.variant === "primary"} data={{
-                  title: button?.label,
-                  type: button?.variant,
-                  icon: button?.iconName,
-                  isExpand: false,
-                }}
-                  onClick={() => { hrefRouter(button.CTA) }} />
+                <Button 
+                  variant={button?.variant === "outlined_negative" ? "outline" : "solid"}
+                  size={button?.size}
+                  icon={button?.iconName}
+                  onClick={() => { hrefRouter(button.CTA) }}>{button?.label}</Button>
               ) : null}
 
             </div>

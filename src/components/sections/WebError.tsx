@@ -1,7 +1,40 @@
 import { FC } from "react"
 import Link from "next/link";
-import errors from "@/multitenant-errors";
-import { LinkConfig } from "@/types/Link.types";
+import errors from "../../../multitenant-errors";
+
+export type LinkConfig = {
+  /**
+   * link text
+   */
+  text: string;
+  /**
+   * Sizes: small | medium | large
+   */
+  size: string;
+  /**
+   * bold text
+   */
+  isBold: boolean;
+  /**
+   * deactivate label
+   */
+  disabled: boolean;
+  /**
+   * identifier
+   */
+  id?: string;
+  /**
+   * icon text
+   */
+  icon?: string;
+  test?: string;
+  href: string;
+}
+
+export type LinkData = {
+  data: LinkConfig,
+  onClick?: () => void;
+}
 
 export type WebErrorComponent = {
   title?: string;

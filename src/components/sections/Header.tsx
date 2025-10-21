@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import AlertInfo from "./AlertInfo";
 import classNames from "classnames";
-import Icon from "@/old-components/Icon"
-import Aspect from "../Aspect";
+import Icon from "@design-system/components/Icon/Icon";
+import Aspect from "@design-system/components/Aspect/Aspect";
 
 // Componente principal Header
 const Header = (props: MenuType) => {
@@ -66,7 +66,7 @@ const Header = (props: MenuType) => {
               return (
                 <Link key={`social-${item?.attributes?.name}`} href={item?.attributes?.href || ""} passHref target={"_blank"}>
 
-                  <Icon name={item.attributes.name} className="w-8 h-8" />
+                  <Icon iconName={item.attributes.name} className="w-8 h-8" />
 
 
                 </Link>)
@@ -318,7 +318,7 @@ const Header = (props: MenuType) => {
       {/* Primer nivel del menú */}
       <NavigationMenu.Root className="relative flex h-auto desktop:py-4 py-3 desktop:px-21 px-6 desktop:border-b desktop:border-surface-300 w-full justify-center align-middle bg-surface-0 tablet:z-10">
         <button className="absolute top-0 left-6 pr-3 py-3 desktop:hidden flex items-center h-full" onClick={() => handleHamburger()}>
-          {!open && <Icon name="sort" className="w-7.5 h-7.5" />}
+          {!open && <Icon iconName="sort" className="w-7.5 h-7.5" />}
           {open && <span className="flex align-middle items-center"><span className="mr-1 material-symbols-outlined">close</span> <p className="font-texts font-normal text-sm">Cerrar</p></span>}
         </button>
         <div className="w-full max-w-[1200px] flex desktop:justify-between justify-center">

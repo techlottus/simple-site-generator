@@ -1,13 +1,11 @@
 import { memo, useEffect, useState } from "react";
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import TestimonialCard from "../../old-components/TestimonialCard";
+import TestimonialCard from "./TestimonialCard";
 import cn from 'classnames';
 import { TestimonialSliderData } from "@/utils/strapi/sections/TestimonialSlider";
-import RichtText from "@/old-components/Richtext/Richtext";
-import parseEditorRawData from "@/utils/parseEditorRawData";
 import Container from "@/layouts/Container.layout";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const TestimonialSlider: React.FC<TestimonialSliderData> = memo((props: TestimonialSliderData) => {
 

@@ -1,5 +1,13 @@
-import { StrapiImage } from "@/types/strapi/common";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
 
 export type CardIconData= {
   IconName?:string;
@@ -10,7 +18,7 @@ export type ButtonType = {
   CTA: string;
   label: string;
   iconName: string;
-  variant: string;
+  variant: 'solid' | 'outline' | 'ghost';
   id: string;
   size: string;
 };

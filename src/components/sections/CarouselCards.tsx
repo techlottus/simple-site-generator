@@ -2,12 +2,12 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
-import { Card, CardType } from '../lottus-education/Card';
+import { Card, CardType } from '../Card';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useRouter } from 'next/navigation';
-import Button from '../lottus-education/Button';
+import Button from '@design-system/components/Button/Button';
 import Container from '@/layouts/Container.layout';
 export type CarouselType = {
   events: CardType[]

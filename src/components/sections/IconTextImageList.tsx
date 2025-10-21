@@ -2,9 +2,7 @@ import { FC } from "react"
 import cn from "classnames";
 import Container from "@/layouts/Container.layout";
 import type {IconTextListImageType } from "@/utils/strapi/sections/IconTextListImage";
-import RichtText from "@/old-components/Richtext/Richtext";
-import parseEditorRawData from "@/utils/parseEditorRawData";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageType) => {
   const { title, desc, iconTextList, imageDesk, tabletImage, mobileImage, positionImage = "right", iconClassNames = "" } = props
@@ -54,9 +52,7 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
                       </div>
                       <div className="">
                         <p className="font-headings font-bold">{item?.title}</p>
-                        <RichtText data={{
-                          content: parseEditorRawData(item?.text)
-                        }} />
+                        <RichTextRenderer content={item?.description} />
                       </div>
                     </div>
                   )

@@ -2,7 +2,7 @@ import { FC } from "react"
 import Container from "@/layouts/Container.layout";
 import cn from "classnames";
 import type { ColorCardListData } from "@/utils/strapi/sections/ColorCardsList";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const ColorCardList: FC<ColorCardListData> = (props: ColorCardListData) => {
 

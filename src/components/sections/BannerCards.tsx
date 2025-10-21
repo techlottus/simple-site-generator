@@ -1,13 +1,11 @@
 import { FC } from "react";
 import { BannerCardsData, CardIconData } from "@/utils/strapi/sections/BannerCards";
 import ContentFullLayout from "@/layouts/ContentFull.layout";
-import RichtText from "@/old-components/Richtext/Richtext";
-import parseEditorRawData from "@/utils/parseEditorRawData";
-import Button from "@/old-components/Button/Button";
+import Button from "@design-system/components/Button/Button";
 import cn from "classnames";
 import { useRouter } from "next/router";
 import ContentLayout from "@/layouts/Content.layout";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 
 const BannerCardsSection: FC<BannerCardsData> = (props: BannerCardsData) => {
@@ -46,17 +44,16 @@ const BannerCardsSection: FC<BannerCardsData> = (props: BannerCardsData) => {
                 <div id="cards-container" className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 grid-flow-row gap-6">
                   {cardIconItems?.map((cardIconItem, i) => cardIcon(cardIconItem, i))}
                 </div>
-                {button && <Button dark data={{
-                  id: button?.id,
-                  type: button?.variant,
-                  title: button?.label,
-                  icon: button?.iconName,
-                  size: "small",
-                  lyIcon: false,
-                  disabled: false,
-                  isExpand: true,
-                }}
-                  onClick={() => router?.push(button?.CTA)} />
+                {button && <Button 
+                id={button?.id} 
+                type="button" 
+                intent='primary' 
+                size='sm' 
+                variant={button.variant}
+                className="w-full" 
+                icon={button?.iconName} 
+                disabled={false}
+                onClick={() => router?.push(button?.CTA)}>{button?.label}</Button>
                 }
               </div>
             </div>

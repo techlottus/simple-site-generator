@@ -1,13 +1,11 @@
 import { FC } from "react";
 import Container from "@/layouts/Container.layout";
-import Image from "@/old-components/Image";
-import parseEditorRawData from "@/utils/parseEditorRawData";
-import RichtText from "@/old-components/Richtext/Richtext";
+import Image from "@design-system/components/Image/Image";
 import cn from "classnames";
 import type { RichTextImageSection } from "@/utils/strapi/sections/RichTextImage";
-import Button from "@/old-components/Button/Button";
+import Button from "@design-system/components/Button/Button";
 import { useRouter } from "next/router";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) => {
 
@@ -21,7 +19,6 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
     buttons
   } = props;
   const router = useRouter();
-  const isBlocksContent =  typeof text == "object"
 
   const renderImage = () => {
     return (
@@ -60,8 +57,9 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
               text
                 ?
                 <div className="my-auto">
-                  {isBlocksContent ? <RichTextRenderer className={richTextImageContentVariant === "light" ? "text-surface-100" : "text-surface-900"} content = {text} /> 
-                  : typeof text === "string" && <RichtText data={{content :parseEditorRawData(text)}}/>}
+                 <RichTextRenderer 
+                 className={richTextImageContentVariant === "light" ? "text-surface-100" : "text-surface-900"} 
+                 content = {text} /> 
                   {
                     buttons && buttons?.length > 0 ?
                       <div className="grid gap-6 w-d:grid-cols-2 w-t:grid-cols-2">
@@ -69,17 +67,12 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
                           buttons?.map((item, i) => {
                             return (
                               <div key={`richTextImage-button-${i}`}>
-                                <Button dark data={{
-                                  id: item?.id,
-                                  type: item?.variant,
-                                  title: item?.label,
-                                  icon: item?.iconName,
-                                  size: "small",
-                                  lyIcon: false,
-                                  disabled: false,
-                                  isExpand: true,
-                                }}
-                                  onClick={() => router?.push(item?.CTA)} />
+                                <Button 
+                                  variant={item?.variant === "outlined_negative" ? "outline" : "solid"}
+                                  size={item?.size=="small"?"sm":"md"}
+                                  icon={item?.iconName}
+                                  className="w-full"
+                                  onClick={() => router?.push(item?.CTA)}>{item?.label}</Button>
                               </div>
                             )
                           }

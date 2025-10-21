@@ -1,7 +1,7 @@
 import { FC } from "react"
 import Container from "@/layouts/Container.layout";
 import type { AlertSection } from "@/utils/strapi/sections/Alert"
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import {RichTextRenderer}  from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const Alert: FC<AlertSection> = (props: AlertSection) => {
   const { title, text, links, iconName } = props;

@@ -1,7 +1,7 @@
 import Container from "@/layouts/Container.layout";
-import SliderPortalverseWrapper from "@/components/SliderPortalverseWrapper";
+import SliderPortalverseWrapper from "@/components/sections/SliderPortalverse";
 import type { HeroSliderSection } from "@/utils/strapi/sections/HeroSlider";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const HeroSlider = (props: HeroSliderSection) => {
   return (

@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Container from "@/layouts/Container.layout";
-import Aspect from "@/components/Aspect";
+import Aspect from "@design-system/components/Aspect/Aspect";
 import type { VideosSectionData } from "@/utils/strapi/sections/Videos";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const VideoSection: FC<VideosSectionData> = (props: VideosSectionData) => {
   const { title, testimonialContent, videos } = props;

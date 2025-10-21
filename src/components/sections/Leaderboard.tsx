@@ -1,8 +1,8 @@
 import Container from "@/layouts/Container.layout"
-import Image from "@/old-components/Image";
+import Image from "@design-system/components/Image/Image";
 import cn from "classnames";
 import type { LeaderboardSection } from "@/utils/strapi/sections/Leaderboard"
-import Button from "@/old-components/Button/Button";
+import Button from "@design-system/components/Button/Button";
 
 const Leaderboard = (props: LeaderboardSection) => {
   const {
@@ -93,13 +93,12 @@ const Leaderboard = (props: LeaderboardSection) => {
                 : null
             }
             {button&& (
-              <Button  darkOutlined= {button.variant === "outlined_negative"} dark={button.variant === "primary"} data={{
-                title: button?.label,
-                type: button?.variant,
-                icon: button?.iconName,
-                isExpand: false,            
-              }}
-                onClick={() =>{ myhref(button.CTA)}} />
+              <Button 
+              variant={button?.variant === "outlined_negative" ? "outline" : "solid"}
+              size={button?.size}
+              icon={button?.iconName}
+              className="w-full"
+              onClick={() =>{ myhref(button.CTA)}}>{button?.label}</Button>
             )}
             {
               !button && links?.length > 0

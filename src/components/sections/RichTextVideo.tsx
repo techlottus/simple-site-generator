@@ -1,13 +1,11 @@
 import { FC } from "react";
 import Container from "@/layouts/Container.layout";
-import parseEditorRawData from "@/utils/parseEditorRawData";
-import RichtText from "@/old-components/Richtext/Richtext";
 import cn from "classnames";
 import type { RichTextVideoSection } from "@/utils/strapi/sections/RichTextVideo";
-import Aspect from "../Aspect";
-import Button from "@/old-components/Button/Button";
+import Aspect from "@design-system/components/Aspect/Aspect";
+import Button from "@design-system/components/Button/Button";
 import { useRouter } from "next/router";
-import { RichTextRenderer } from "../lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const RichTextVideo: FC<RichTextVideoSection> = (props: RichTextVideoSection) => {
   const {
@@ -22,7 +20,6 @@ const RichTextVideo: FC<RichTextVideoSection> = (props: RichTextVideoSection) =>
   } = props;
 
   const router = useRouter();
-  const isBlocksContent = typeof text == "object" && text !== null
 
   const renderVideo = () => {
     return (
@@ -63,7 +60,7 @@ const RichTextVideo: FC<RichTextVideoSection> = (props: RichTextVideoSection) =>
               text
                 && ( <div className="dark ">
                   { title && <h3 className="font-headings text-10 pb-4 font-bold leading-tight w-t:text-8.5 w-p:text-6">{title}</h3>}
-                   {isBlocksContent ? <RichTextRenderer content={text}/> : typeof text === "string" && <RichtText data={{ content: parseEditorRawData(text) }} />}
+                    <RichTextRenderer content={text}/>
                    {
                     buttons && buttons?.length > 0 ?
                     <div className="grid gap-6 w-d:grid-cols-2 w-t:grid-cols-2">
@@ -71,17 +68,12 @@ const RichTextVideo: FC<RichTextVideoSection> = (props: RichTextVideoSection) =>
                       buttons?.map((item, i) => {
                         return (
                           <div key={`richTextVideo-button-${i}`}>
-                          <Button dark data={{
-                            id: item?.id,
-                            type: item?.variant,
-                            title: item?.label,
-                            size: "small",
-                            lyIcon: false,
-                            disabled: false,
-                            isExpand: true,
-                            icon: item?.iconName
-                          }}
-                            onClick={() => router?.push(item?.CTA)} />
+                          <Button 
+                          variant={item?.variant === "outlined_negative" ? "outline" : "solid"}
+                          size="sm"
+                          icon={item?.iconName}
+                          className="w-full"
+                          onClick={() => router?.push(item?.CTA)}>{item?.label}</Button>
                         </div>
                         )}
                       )

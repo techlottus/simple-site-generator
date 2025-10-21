@@ -1,12 +1,21 @@
-import { StrapiImage } from "@/types/strapi/common";
 import { VideoItem } from "./Videos";
 import { button } from "./RichTextImage";
+import { BlocksContent } from "@strapi/blocks-react-renderer";
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
 
 export type VideoImageData = {
-  type: "ComponentSectionsGraduatesForm";
+  type: "ComponentSectionsVideoImage";
   title: string;
-  subtitle: string;
-  images: Array<any>
+  subtitle: BlocksContent;
+  images: Array<StrapiImage>
   video: VideoItem
   button: button
 };

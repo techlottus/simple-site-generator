@@ -1,5 +1,14 @@
-import { StrapiImage } from "@/types/strapi/common";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
+
 
 export type button = {
   CTA: string;
@@ -13,7 +22,7 @@ export type RichTextImageSection = {
   type: "ComponentSectionsRichTextImage";
   title: string;
   image: StrapiImage;
-  text: BlocksContent | string;
+  text: BlocksContent;
   imagePosition: "left" | "right";
   backgroundColor: string;
   richTextImageContentVariant: "light" | "dark";

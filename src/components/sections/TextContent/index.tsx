@@ -1,4 +1,4 @@
-import { RichTextRenderer } from "@/components/lottus-education/RichTextRenderer";
+import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 import Container from "@/layouts/Container.layout";
 import type { TextContentSection } from "@/utils/strapi/sections/TextContent";
 
