@@ -31,7 +31,7 @@ export const getLayout = async (name = "Default") => {
     LAYOUTS,
     { name }
   );
-
+   console.log("Layout response:", response.layouts);
   return response?.layouts?.data[0];
 };
 

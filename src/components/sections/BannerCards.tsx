@@ -1,9 +1,10 @@
+'use client';
 import { FC } from "react";
 import { BannerCardsData, CardIconData } from "@/utils/strapi/sections/BannerCards";
 import ContentFullLayout from "@/layouts/ContentFull.layout";
 import Button from "@design-system/components/Button/Button";
 import cn from "classnames";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import ContentLayout from "@/layouts/Content.layout";
 import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 

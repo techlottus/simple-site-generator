@@ -1,10 +1,11 @@
+'use client';
 import { FC } from "react";
 import Container from "@/layouts/Container.layout";
 import Image from "@design-system/components/Image/Image";
 import cn from "classnames";
 import type { RichTextImageSection } from "@/utils/strapi/sections/RichTextImage";
 import Button from "@design-system/components/Button/Button";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) => {

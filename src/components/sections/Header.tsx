@@ -1,13 +1,15 @@
+"use client";
 import { MenuType } from "@/utils/strapi/sections/Header";
 import React, { useEffect, useState } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { CaretDownIcon } from '@radix-ui/react-icons';
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import AlertInfo from "./AlertInfo";
 import classNames from "classnames";
 import Icon from "@design-system/components/Icon/Icon";
 import Aspect from "@design-system/components/Aspect/Aspect";
+import Image from "@design-system/components/Image/Image";
 
 // Componente principal Header
 const Header = (props: MenuType) => {
@@ -18,7 +20,9 @@ const Header = (props: MenuType) => {
   const [itemSelected, setItemSelected] = useState(false);
   const [itemSubSelected, setSubItemSelected] = useState(false);
   const [subItems, setSubItems] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any  
   const [itemList, setItemList] = useState<any>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [subItemList, setSubItemList] = useState<any>([]);
   const [open, setOpen] = useState(false)
   const [openContent, setOpenContent] = useState('')
@@ -34,7 +38,8 @@ const Header = (props: MenuType) => {
   const Links = ({ links }: { links?: (MenuType['links']) }) => (
     <div className="w-full">
       <NavigationMenu.List className="flex space-x-3 desktop:space-x-0 w-full desktop:items-center desktop:justify-end ">
-        {links?.map((link?: any, i?: number) => (
+        {// eslint-disable-next-line @typescript-eslint/no-explicit-any
+        links?.map((link?: any, i?: number) => (
           <NavigationMenu.Item key={i} className="w-1/2 desktop:w-full desktop:px-3 desktop:py-0 p-4 mobile:border-2 tablet:border-2  desktop:border-r desktop:last:border-r-0 rounded-lg desktop:rounded-none desktop:border-surface-900">
             <Link href={link?.href ?? ""} passHref onClick={() => handleCloseOnClick()}>
               <p className="font-texts desktop:font-normal font-semibold text-sm desktop:text-surface-500 cursor-pointer hover:text-primary-500 w-full">
@@ -53,31 +58,32 @@ const Header = (props: MenuType) => {
     return (
       <div id='button-links-mobile' className={classNames("desktop:hidden flex flex-col w-full tablet:max-w-100", className)}>
         <button
-          onClick={() => { button?.CTA ? router.push(button?.CTA) : null }}
+          onClick={() => { if(button?.CTA){router.push(button?.CTA)}} }
           className="px-4 py-3 rounded bg-surface-950 border border-surface-950 text-sm text-surface-100 font-texts hover:bg-surface-50 hover:text-surface-950 w-full">
           {button?.label}
         </button>
         <div className="desktop:hidden py-6 flex mx-auto w-full">
           <Links links={links} />
         </div>
+        
         <div id='social-media' className="flex w-full justify-center space-x-3 pb-6">
-          {social_medias?.data.length > 0 &&
-            social_medias?.data.map((item: any, i: number) => {
+          {social_medias?.data.length > 0 && 
+          (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            social_medias?.data.map((item: any) => {
               return (
                 <Link key={`social-${item?.attributes?.name}`} href={item?.attributes?.href || ""} passHref target={"_blank"}>
-
                   <Icon iconName={item.attributes.name} className="w-8 h-8" />
-
-
                 </Link>)
             }
-            )
+            ))
           }
         </div>
       </div>
     )
   }
   // Componente de subitems
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const SubItems = ({ list, isSub = false, linkText, linkHref = '', label }: { list: any, isSub?: boolean, linkText?: string, linkHref?: string, label?: string }) => {
 
     return (
@@ -89,8 +95,8 @@ const Header = (props: MenuType) => {
           <div className="desktop:hidden flex flex-col space-y-2 border-b border-surface-300 mobile:mt-3 tablet:mt-3 mobile:pb-3 tablet:pb-3">
             <div className="flex space-x-2 align-middle items-center">
               <button onClick={() => {
-                subItems ? setSubItems(false) :
-                  items && setItems(false)
+                if(subItems){setSubItems(false)}
+                else if(items) {setItems(false)}
               }
               } ><span className="material-symbols-outlined text-2xl rounded p-2 bg-surface-300 font-bold">arrow_back</span></button>
               <p className="font-semibold font-texts text-lg">{label}</p>
@@ -103,7 +109,8 @@ const Header = (props: MenuType) => {
             </Link>
           </div>}
         <ul className={classNames("flex flex-col w-full h-full mobile:h-fit tablet:h-fit desktop:pr-6 mobile:space-y-3 tablet:space-y-3 ", { ["desktop:w-[273px] desktop:space-y-3 "]: isSub, ["desktop:space-y-2"]: !isSub })} tabIndex={-1}  >
-          {list?.map((item: any, i: number) =>
+          {// eslint-disable-next-line @typescript-eslint/no-explicit-any
+          list?.map((item: any, i: number) =>
             item?.items?.length > 0 ? (
               <button key={i} className={classNames("group w-full", {
                 [" rounded-lg desktop:px-3 desktop:border desktop:border-surface-50 desktop:hover:border-surface-200 desktop:hover:bg-surface-0 desktop:py-2"]: !isSub,
@@ -111,7 +118,8 @@ const Header = (props: MenuType) => {
               })}
                 onMouseEnter={() => {
                   handleMouseEnter(item, isSub)
-                  isSub ? setSubItemSelected(subItemList.id) : setItemSelected(itemList.id)
+                  if(isSub){setSubItemSelected(subItemList.id)}
+                  else {setItemSelected(itemList.id)}
                 }}>
                 <div className="flex items-center justify-between">
                   <p className={classNames("font-normal  desktop:group-hover:text-primary-500 text-surface-500 font-texts text-wrap text-left text-base mobile:py-2", {
@@ -125,7 +133,7 @@ const Header = (props: MenuType) => {
             ) : (
               <span role="button" tabIndex={-1} key={i} 
               onClick={() => {
-                item.href? router.push(item.href): null
+                if(item.href){router.push(item.href)}
                 setOpen(false)
                 setOpenContent("closed")
                 setItems(false)
@@ -133,7 +141,8 @@ const Header = (props: MenuType) => {
               }
               }            
               onMouseEnter={() => {
-                isSub ? setSubItems(false) : setItems(false)
+                if(isSub){setSubItems(false)}
+                else {setItems(false)}
               }} >
                 <p className={classNames("mobile:py-2 tablet:py-2 w-full text-base", {
                   ["desktop:px-3 rounded-lg desktop:border desktop:border-surface-50 desktop:hover:border-surface-200 desktop:hover:bg-surface-0 py-2"]: !isSub,
@@ -143,8 +152,10 @@ const Header = (props: MenuType) => {
               </span>
             )
           )}
-          {linkText && <Link href={linkHref ?? ""} passHref onClick={() => handleCloseOnClick()} onMouseEnter={() => {
-            isSub ? setSubItems(false) : setItems(false)
+          {linkText && <Link href={linkHref ?? ""} passHref onClick={() => handleCloseOnClick()} 
+            onMouseEnter={() => {
+              if(isSub){setSubItems(false)}
+              else{setItems(false)}
           }
           } className="mobile:hidden tablet:hidden">
             <div className={classNames("py-2 w-full font-texts text-primary-500 font-normal flex align-middle", { ["desktop:px-3"]: !isSub })}>
@@ -159,11 +170,12 @@ const Header = (props: MenuType) => {
       </div>
     );
   }
-
-  const SubItemsCols = ({ subitems, linkText, linkHref = "", isSub = true }: { subitems: any; isSub?: boolean, linkText?: string, linkHref?: string }) => (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const SubItemsCols = ({ subitems, linkText, linkHref = "" }: { subitems: any; linkText?: string, linkHref?: string }) => (
     <div className="flex flex-col w-full overflow-x-auto overscroll-x-auto desktop:max-h-[724px]">
       <ul className={classNames("flex flex-col flex-wrap max-h-100 max-w-[273px]")} tabIndex={-1} onMouseEnter={() => setItems(true)}>
-        {subitems.items?.map((item: any, i: number) => (
+        {// eslint-disable-next-line @typescript-eslint/no-explicit-any
+        subitems.items?.map((item: any, i: number) => (
           <Link key={i} href={item?.href ?? ""} passHref onClick={() => handleCloseOnClick()}>
             <p className={classNames("font-text mr-3 mb-3 text-base",
               {
@@ -184,14 +196,14 @@ const Header = (props: MenuType) => {
       </div>}
     </div>
   );
-
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Banner = ({ textPosition, desktopRatio, desktopImage, overlay, title, subtitle, ctaUrl, ctaText, contentVariant }: { textPosition: string, desktopRatio: string, desktopImage: any, overlay: string, title: string, subtitle: string, ctaUrl: string, ctaText: string, contentVariant: string }) => {
     return (
       <div className="w-t:hidden w-p:hidden rounded">
         <Aspect ratio={desktopRatio}>
           <div className="w-full h-full rounded">
             <div className={classNames("relative flex w-full h-full shrink-0")} >
-              <img className="w-full h-full w-t:hidden object-cover rounded" src={desktopImage?.data?.attributes.url} alt="image" />
+              <Image classNamesImg="w-full h-full w-t:hidden object-cover rounded" src={desktopImage?.data?.attributes.url} alt={''} />
               {
                 overlay &&
                 <div className={classNames("absolute w-full h-full rounded", {
@@ -257,10 +269,11 @@ const Header = (props: MenuType) => {
   }
 
   // Layout para el contenido de inicio
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const LayoutHome = ({ banners, alert }: { banners: any, alert: any }) => (
     <div className="flex flex-col space-y-3 w-full justify-between h-full mobile:hidden">
       <div className="grid desktop:grid-cols-2 gap-6 tablet:grid-cols-1 mobile:grid-cols-1">
-        {
+        {// eslint-disable-next-line @typescript-eslint/no-explicit-any
           banners?.map((item: any, i: number) => <div key={`section-banners-${i}`}>
             <Banner {...item} />
           </div>)
@@ -271,7 +284,7 @@ const Header = (props: MenuType) => {
       </div>}
     </div>
   );
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleMouseEnter = (list: any[], isSub: boolean) => {
     if (!isSub) {
       setItems(true);
@@ -297,6 +310,7 @@ const Header = (props: MenuType) => {
 
   useEffect(() => {
     if (!subItems) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       setSubItemList((prev: any) => Object.keys(prev).length !== 0 && {});
       setSubItemSelected(prev => prev !== false && false);
     }
@@ -305,6 +319,7 @@ const Header = (props: MenuType) => {
   useEffect(() => {
     if (!items) {
       setSubItems(prev => prev !== false && false);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       setSubItemList((prev: any) => Object?.keys(prev).length !== 0 && {});
       setSubItemSelected(prev => prev !== false && false);
     }
@@ -326,7 +341,7 @@ const Header = (props: MenuType) => {
           <div className="hidden desktop:flex items-center space-x-6">
             <Links links={links} />
             <button
-              onClick={() => { button?.CTA ? router.push(button?.CTA) : null }}
+              onClick={() => { if(button?.CTA){router.push(button?.CTA)} }}
               className="px-4 py-3 rounded bg-surface-950 border border-surface-950 text-sm text-surface-100 font-texts hover:bg-surface-50 hover:text-surface-950 text-nowrap">
               {button?.label}
             </button>
@@ -365,7 +380,7 @@ const Header = (props: MenuType) => {
                         setOpenContent('closed')
                         clearStates()
                       }
-                      } className="bg-surface-0 mobile:relative  desktop:bg-surface-50 desktop:rounded-b-xl h-full desktop:min-h-[440px]  desktop:px-21 px-6  py-6 mobile:py-0 tablet:py-0 w-full tablet:max-w-100 flex  mobile:flex-col tablet:flex-col !justify-center !items-start tablet:z-20 mobile:overflow-y-auto mobile:overscroll-y-auto">
+                      } className="bg-surface-0 mobile:relative  desktop:bg-surface-50 desktop:rounded-b-xl h-full desktop:min-h-[440px]  desktop:px-21 px-6 desktop:py-6 w-full tablet:max-w-100 flex desktop:flex-row flex-col desktop:justify-center tablet:z-20 mobile:overflow-y-auto mobile:overscroll-y-auto">
                         <div className="flex w-full desktop:max-w-[1200px] desktop:min-h-fit mobile:h-full tablet:h-full mobile:flex-col tablet:flex-col ">
                           <div className="">
                             {/* nivel 2 de opciones */}
@@ -376,21 +391,12 @@ const Header = (props: MenuType) => {
                                 }} ><span className="material-symbols-outlined text-2xl rounded p-2 bg-surface-300 font-bold">arrow_back</span></button>
                                 <p className="font-semibold font-texts text-lg">{menu_item?.label}</p>
                               </div>
-                              {
-                                menu_item.href === '/eventos'
-                                  ? <a href={menu_item?.href ?? ""} onClick={() => handleCloseOnClick()}>
-                                      <div className="w-full font-texts text-primary-500 font-normal desktop:px-3 flex align-middle">
-                                        <p className={classNames("font-normal hover:underline")}>
-                                          {menu_item?.linkText ? menu_item?.linkText + '»' : null} </p>
-                                      </div>
-                                    </a>
-                                  : <Link href={menu_item?.href ?? ""} passHref onClick={() => handleCloseOnClick()}>
-                                      <div className="w-full font-texts text-primary-500 font-normal desktop:px-3 flex align-middle">
-                                        <p className={classNames("font-normal hover:underline")}>
-                                          {menu_item?.linkText ? menu_item?.linkText + '»' : null} </p>
-                                      </div>
-                                    </Link>
-                              }
+                              <Link href={menu_item?.href ?? ""} passHref onClick={() => handleCloseOnClick()}>
+                                <div className="w-full font-texts text-primary-500 font-normal desktop:px-3 flex align-middle">
+                                  <p className={classNames("font-normal hover:underline")}>
+                                    {menu_item?.linkText ? menu_item?.linkText + '»' : null} </p>
+                                </div>
+                              </Link>
                             </div>
                             <div tabIndex={-1} onMouseLeave={() => {
                               setSubItems(false)
@@ -403,7 +409,7 @@ const Header = (props: MenuType) => {
                             {(items && itemList?.items && itemList?.items.length < 12) &&
                               <div className="flex space-x-6 w-full">
                                 <SubItems list={itemList?.items} isSub={true} linkText={itemList?.linkText} linkHref={itemList?.href} />
-                                {subItems && <SubItemsCols subitems={subItemList} isSub linkText={subItemList?.linkText} linkHref={subItemList?.href} />
+                                {subItems && <SubItemsCols subitems={subItemList} linkText={subItemList?.linkText} linkHref={subItemList?.href} />
                                 }
                               </div>
                             }
@@ -431,12 +437,12 @@ const Header = (props: MenuType) => {
 
           </NavigationMenu.List>
           {/* si borran este ya no se ve el contenido a w-full */}
-          <div className={classNames(" w-full desktop:-z-10 desktop:overflow-y-hidden desktop:top-[110px] mobile:top-0 tablet:top-0 desktop:left-0 tablet:left-0 ", {
+          <div className={classNames(" w-full desktop:-z-10 desktop:overflow-y-hidden desktop:top-[113px] mobile:top-0 tablet:top-0 desktop:left-0 tablet:left-0 ", {
             ["hidden"]: openContent == 'closed',
             ["absolute"]: openContent !== 'closed',
           })}>
             <NavigationMenu.Viewport
-              //@ts-ignore
+              // @ts-expect-error Propiedad CSS personalizada no reconocida por TypeScript
               style={{ "--radix-navigation-menu-viewport-height": "", height: "100%" }}
               className={classNames("relative w-full  desktop:data-[state=open]:min-h-[600px] desktop:data-[state=closed]:h-0 desktop:max-h-[1000px] bg-surface-800 desktop:bg-transparent desktop:overflow-visible overflow-hidden tablet:max-w-100 tablet:min-h-full desktop:data-[state=open]:animate-scaleIn desktop:data-[state=closed]:animate-scaleOut")} />
           </div>

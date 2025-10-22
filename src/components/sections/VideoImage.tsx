@@ -1,8 +1,9 @@
+'use client';
 import React from 'react'
 import { VideoImageData } from "@/utils/strapi/sections/VideoImageSection";
 import Aspect from "@design-system/components/Aspect/Aspect";
 import Button from "@design-system/components/Button/Button";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import ContentLayout from "@/layouts/Content.layout";
 import {RichTextRenderer} from '@design-system/components/RichTextRenderer/RichTextRenderer';
 import cn from "classnames";

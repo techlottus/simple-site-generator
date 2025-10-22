@@ -1,5 +1,15 @@
-import { StrapiImage } from "@/types/strapi/common";
+
 import { RichTextImageSection } from "./RichTextImage";
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
+
 
 export type RichTextImageBgImageSection = {
   type: "ComponentSectionsRichTextImageBgImage"

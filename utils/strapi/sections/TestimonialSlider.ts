@@ -1,6 +1,21 @@
-import { TestimonialCardData } from "@/types/TestimonialCard";
-import { StrapiImage } from "@/types/strapi/common";
+
 import { BlocksContent } from "@strapi/blocks-react-renderer";
+
+export type TestimonialCardData = {
+  title: string;
+  subtitle: string;
+  testimonialText: BlocksContent;
+  testimonialImage: StrapiImage
+}
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
 
 export type TestimonialSliderData = {
   type: "ComponentSectionsTestimonialSlider";

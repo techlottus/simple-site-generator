@@ -3,7 +3,6 @@ import React from 'react'
 import Aspect from '@design-system/components/Aspect/Aspect'
 import Image from '@design-system/components/Image/Image'
 import cn from 'classnames'
-import { useRouter } from 'next/navigation'
 
 
 export type CardType = {
@@ -82,7 +81,6 @@ export const Card = (props: CardType) => {
     active: 'Registro abierto',
     finished: 'Finalizado',
   }
-  const router = useRouter()
   const convert = (horaString:string) =>{
     const [hora, minuto] = horaString.split(":").map(Number); 
     const fecha = new Date();

@@ -1,4 +1,12 @@
-import type { StrapiImage } from "@/types/strapi/common";
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
 
 export type OverlayCard = {
   title: string;

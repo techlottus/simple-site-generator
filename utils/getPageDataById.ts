@@ -13,7 +13,7 @@ export type PageData = {
     slug: string;
     breadcrumb: string;
     sections: Array<ComponentSection>;
-    seo: {
+    seo_section: {
       metaTitle:string;
       metaDescription:string;
       metaImage: {
@@ -226,7 +226,7 @@ query PageById($id: ID) {
             }
           }
         }
-        seo {
+        seo_section {
           metaTitle
           metaDescription
           metaImage {

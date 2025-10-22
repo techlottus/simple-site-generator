@@ -1,4 +1,3 @@
-import { StrapiImage } from "@/types/strapi/common";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 type IconText = {
@@ -6,7 +5,14 @@ type IconText = {
   text: BlocksContent;
   icon: string;
 }
-
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
 export type IconTextListImageType = {
   type: "ComponentSectionsIconTextListImage";
   title: string;

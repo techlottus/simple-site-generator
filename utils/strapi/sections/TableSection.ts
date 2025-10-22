@@ -1,4 +1,3 @@
-import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export type TableSectionType = {
   type: "ComponentSectionsTable";

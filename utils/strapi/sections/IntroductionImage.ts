@@ -1,4 +1,3 @@
-import { StrapiImage } from "@/types/strapi/common";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 type Images = {
@@ -9,7 +8,14 @@ type Images = {
   mobileRatio: string;
   tabletRatio: string;
 }
-
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
 export type IntroductionImageSection = {
   type: "ComponentSectionsIntroductionImage";
   title: string;

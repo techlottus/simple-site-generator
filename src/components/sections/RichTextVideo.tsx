@@ -1,10 +1,11 @@
+'use client';
 import { FC } from "react";
 import Container from "@/layouts/Container.layout";
 import cn from "classnames";
 import type { RichTextVideoSection } from "@/utils/strapi/sections/RichTextVideo";
 import Aspect from "@design-system/components/Aspect/Aspect";
 import Button from "@design-system/components/Button/Button";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { RichTextRenderer } from "@design-system/components/RichTextRenderer/RichTextRenderer";
 
 const RichTextVideo: FC<RichTextVideoSection> = (props: RichTextVideoSection) => {

@@ -1,24 +1,21 @@
-import { useRouter } from "next/router"
-// import Footer from "@/old-components/FooterPortalverse"
-// import Header from "@/old-components/HeaderPortalverse/HeaderPortalverse"
-import HeaderFooterLayoutProps from "@/types/HeaderFooterLayout.types"
-import Breadcrumbs from "@/old-components/Breadcrumbs/BreadcrumbPortalverse"
-import ContentLayout from "@/layouts/Content.layout"
-import HeaderConf from "@/config/header.json"
-import FooterConf from "@/config/footer.json"
+'use client';
+import { useRouter } from "next/navigation"
 import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
+import Footer from "@/components/sections/FooterSection"
+import { ReactNode } from "react"
 
+type HeaderFooterLayoutProps = {
+  children: ReactNode;
+  breadcrumbs?: boolean;
+};
 export default function DynamicPageLayout({ children, breadcrumbs = true,layoutData }: HeaderFooterLayoutProps &any) {
 
-  const { menus, logotype, menuMobile } = HeaderConf;
-  const { privacyLink, certifications, logotype: logotipo, social, phone, directorio, sections } = FooterConf;
 
   const router = useRouter();
 
   const logotypeClick = () => router.push('/');
+  console.log("DynamicPageLayout layoutData:", layoutData);
 
-  const clickCTA = () => router.push("/admisiones/pedir-informacion");
 
   return <>
     <Header {...layoutData?.attributes?.header?.data?.attributes} />

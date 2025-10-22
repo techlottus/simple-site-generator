@@ -1,10 +1,83 @@
-import type {
-  StrapiButton,
-  StrapiImage,
-} from "@/types/strapi/common";
+
 import { Link } from "./LinkList";
-import { BannerPortalverseConfig } from "@/types/BannerPortalverse.types";
-import ButtonComponentData from "@/types/Button.types";
+
+type Image = {
+  mobile: string;
+  desktop: string;
+  tablet?: string;
+};
+export type ButtonConfig = {
+  /**
+   * Button identifier
+   */
+  id?: string;
+  /**
+   * Type of style of the button
+   *
+   * Types: primary | secondary | outlined | text
+   */
+  type?: string;
+  /**
+   * Botton text
+   */
+  title?: string;
+  /**
+   * Button size
+   *
+   * Sizes: small | medium | large
+   */
+  size?: string;
+  /**
+   * Name of icon
+   */
+  icon?: string;
+  /**
+   * The button with icon and without text
+   */
+  lyIcon?: boolean;
+  /**
+   * flag to deactivate the button
+   */
+  disabled?: boolean;
+  /**
+   * Flag to expand Button to 100%
+   */
+  isExpand?: boolean;
+  /**
+   * Tag output click button
+   */
+  tagOnClick?: string;
+  test?: string;
+}
+export type BannerPortalverseConfig = {
+  image?: Image;
+  title?:string;
+  subtitle?:string;
+  position?:string;
+  height?: string;
+  overlayWhite?: boolean;
+  overlayDak?: boolean
+  button: ButtonConfig
+  noAction:boolean;
+  dimensions?: Array<string>;
+  font: string;
+  variant?: "sm" | "md" | "lg";
+  desktopRatio?: string;
+  tabletRatio?: string;
+  mobileRatio?: string;
+}
+
+
+export type StrapiButton = {label?:string, variant?:"primary"|"outlined"|"outlined_negative", iconName?:string, CTA:string, size?:"xs"|"sm"|"md"|"lg" }
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
 
 export type SubitemType = {
   id?: string;

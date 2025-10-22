@@ -1,6 +1,17 @@
-import { ContentVariant, StrapiButton, StrapiImage } from "@/types/strapi/common";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
+export type StrapiButton = {label?:string, variant?:"primary"|"outlined"|"outlined_negative", iconName?:string, CTA:string, size?:"xs"|"sm"|"md"|"lg" }
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
+
+export type ContentVariant = "dark" | "light";
 
 export type OutstandingSection = {
   title: string;

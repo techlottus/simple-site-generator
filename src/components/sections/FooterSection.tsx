@@ -28,7 +28,7 @@ const FooterSection: FC<FooterSect> = ({
     <section className="flex">
       {/* Section logotype */}
       {
-        ( logo || social_medias.data.length > 0 ) && <div className="w-full p-6 border-b  border-0 border-solid border-surface-300">
+        ( logo || social_medias?.data.length > 0 ) && <div className="w-full p-6 border-b  border-0 border-solid border-surface-300">
         {/* logo */}
         {
           logo && <FooterLogo position={position} onClickLogo={onClickLogo}></FooterLogo>
@@ -37,7 +37,7 @@ const FooterSection: FC<FooterSect> = ({
           {/* social media */}
           <div className="flex w-p:flex-wrap gap-9 items-center">
             {
-              social_medias.data && social_medias.data.map((item: any, i: number) => <Link key={`social-${i}`} href={item.attributes.href} passHref target={"_blank"}>
+              social_medias?.data && social_medias?.data.map((item: any, i: number) => <Link key={`social-${i}`} href={item.attributes.href} passHref target={"_blank"}>
 
                 <Icon iconName={item.attributes.icon_name} className="w-8 h-8 text-surface-500 w-p:text-balck" />
               </Link>)
@@ -55,7 +55,7 @@ const FooterSection: FC<FooterSect> = ({
       }
       {/* columns */}
       {
-        columns.length > 0 && <div className="w-full p-6 w-t:hidden w-p:hidden flex gap-24 border-b  border-0 border-solid border-surface-300">
+        columns?.length > 0 && <div className="w-full p-6 w-t:hidden w-p:hidden flex gap-24 border-b  border-0 border-solid border-surface-300">
         {
           columns?.map((column: any, i: number) => <div key={`footer-column-${i}`} className="flex flex-col gap-6 w-64">
             {
@@ -90,7 +90,7 @@ const FooterSection: FC<FooterSect> = ({
       
       {/* certificaciones */}
       {
-        images.data.length > 0 && <div className="w-full p-6 flex flex-col border-b  border-0 border-solid border-surface-300">
+        images?.data?.length > 0 && <div className="w-full p-6 flex flex-col border-b  border-0 border-solid border-surface-300">
         <p className="mb-5">{ title }</p>
         <div className="flex gap-12 flex-wrap">
           {
@@ -101,7 +101,7 @@ const FooterSection: FC<FooterSect> = ({
       }
       {/* link */}
       {
-        links.length > 0 && <div className="w-full p-6 w-t:p-2 w-p:p-4 flex justify-center">
+        links?.length > 0 && <div className="w-full p-6 w-t:p-2 w-p:p-4 flex justify-center">
           {
             links.map((link, i) => {
               return <>

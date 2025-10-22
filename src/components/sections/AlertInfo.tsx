@@ -1,7 +1,21 @@
 import { FC } from "react"
-import RichtText from "@/old-components/Richtext/Richtext";
-import { LinkComponentConfig } from "@/types/LinkListComponentS";
-import { StrapiImage } from "@/types/strapi/common";
+
+export type StrapiImage = {
+  data: {
+    attributes: {
+      url: string;
+      alternativeText?: string;
+    };
+  };
+};
+export type LinkComponentConfig = {
+  text: string;
+  disabled: boolean;
+  iconName: string;
+  iconPosition: string;
+  href: string;
+  target: string;
+}
 
 type AlertInfoType = {
   title: string;
