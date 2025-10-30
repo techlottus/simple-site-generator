@@ -22,10 +22,10 @@ export const getPageDataBySlug = async (slug: string) => {
   );
   const targetPageId = targetPage?.id;
 
-  if (!targetPageId) throw new Error("Page ID Not Found");
+  if (!targetPageId) return null;
     
   const pageData = await getPageDataById({ id: targetPageId });
-  return pageData?.page;
+  return pageData?.page || null;
 };
 
 

@@ -25,7 +25,6 @@ async function fetcher<DataType>(
     }
 
     const { data, errors }: JSONResponse = await response.json();
-    console.log({data, errors});
     if (response?.ok) {
       if ( data ) {
         return data;

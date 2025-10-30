@@ -14,7 +14,6 @@ export default function DynamicPageLayout({ children, breadcrumbs = true,layoutD
   const router = useRouter();
 
   const logotypeClick = () => router.push('/');
-  console.log("DynamicPageLayout layoutData:", layoutData);
 
 
   return <>

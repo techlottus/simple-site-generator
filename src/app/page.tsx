@@ -1,94 +1,85 @@
-import Button from '@design-system/components/Button/Button';
-import Image from "next/image";
+import HeaderFooterLayout from "@/layouts/HeaderFooter.layout";
+import getLayout from "@/utils/getLayout";
 
-export default function Home() {
-  return (
-    <div className="font-sans flex flex-col items-center justify-items-center min-h-screen p-8 pb-16 gap-16 sm:p-16">
-      <main className="flex flex-col gap-[24px] row-start-2 items-center sm:items-start">
-        <Image
-          src="https://static.wikia.nocookie.net/dragonball/images/c/c0/Son_Goku_en_Super_Hero.png/revision/latest?cb=20220302091733&path-prefix=es"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <h1 className='font-headings'>poppins</h1>
-        <h1 className='font-texts'>tambien nunito</h1>
-        <h1 >por defsult toma nunito</h1>
-        <span className="font-icons-solid">download</span>
-        <span className="font-icons-outlined">check</span>
-        <div>
-          <p>Este es un boton consumido del DS ⬇️</p>
-          <Button size="sm" intent="primary">
-              Test
-          </Button>
-        </div>
-        <p>Esto es una paleta generada con multitenant ⬇️</p>
-        <div className='grid grid-cols-6 gap-4'>
-        <div className="w-[40px] h-[40px] bg-primary-50 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-100 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-200 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-300 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-400 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-500 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-600 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-700 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-800 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-900 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-primary-950 rounded-[10px]"></div>
-        <div className="w-[40px] h-[40px] bg-error-500 rounded-[10px]">e</div>
-        <div className="w-[40px] h-[40px] bg-success-500 rounded-[10px]">s</div>
-        <div className="w-[40px] h-[40px] bg-warning-500 rounded-[10px]">w</div>
-        <div className="w-[40px] h-[40px] bg-info-500 rounded-[10px]">i</div>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+import { Metadata } from "next";
+import { favicon } from "../../multitenant-images";
+import { getHomePageData } from "@/utils/getHomePageData";
+import ContentGenerator from "@/utils/ContentGenerator";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const homePageData = await getHomePageData();
+  const seoData = homePageData?.homePage?.data?.attributes?.seo_section;
+  const robots = seoData?.metaRobots?.split(",") || [];
+  const socialMedia = seoData?.metaSocial?.reduce((acc, meta) => {
+    acc[meta?.socialNetwork] = meta;
+    return acc;
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }, {} as Record<string, any>);
+
+  return {
+    title: homePageData?.homePage?.data?.attributes?.title || "  ",
+    description: seoData?.metaDescription || "  ",
+    alternates: {
+      canonical: seoData?.canonicalURL || " ",
+    },
+    icons: { icon: favicon },
+    openGraph: {
+      type: "website",
+      locale: "es_ES",
+      url: seoData?.canonicalURL || " ",
+      title: socialMedia?.Facebook?.title || " ",
+      description: socialMedia?.Facebook?.description || "  ",
+      siteName: seoData?.canonicalURL || "Next.js",
+      images: [
+        {
+          url: socialMedia?.Facebook?.image?.data?.attributes?.url || "  ",
+          width: 800,
+          height: 600,
+          alt: socialMedia?.Facebook?.image?.data?.attributes?.alt || "",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@ssg",
+      title: socialMedia?.Twitter?.title || "  ",
+      description: socialMedia?.Twitter?.description || "  ",
+      images: [
+        {
+          url: socialMedia?.Twitter?.image?.data?.attributes?.url || "   ",
+          width: 800,
+          height: 600,
+          alt: socialMedia?.Twitter?.image?.data?.attributes?.alt || "",
+        },
+      ],
+    },
+    robots: {
+      index: robots?.includes("index") || false,
+      follow: robots?.includes("follow") || false,
+      noarchive: robots?.includes("noarchive") || false,
+      nosnippet: robots?.includes("nosnippet") || false,
+      noimageindex: robots?.includes("noimageindex") || false,
+      nocache: robots?.includes("nocache") || false,
+    },
+    keywords: seoData?.keywords || " ",
+    viewport: seoData?.metaViewport || "width=device-width, initial-scale=1.0",
+    other: seoData?.structuredData
+      ? { "application/ld+json": JSON.stringify(seoData.structuredData) }
+      : undefined,
+  };
 }
+
+export default async function Home() {
+  const homePageData = await getHomePageData();
+  const sections = homePageData?.homePage?.data?.attributes?.sections;
+  const layoutData = await getLayout();
+
+
+  return (
+    <HeaderFooterLayout breadcrumbs={false} layoutData={layoutData}>
+      {sections?.length > 0 ? (
+          <ContentGenerator blocks={sections} />
+        ) : null}
+    </HeaderFooterLayout>
+  );
+} 
