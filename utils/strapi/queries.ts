@@ -2,6 +2,7 @@ import { ALERT } from "@/utils/strapi/sections/Alert";
 import { BANNER_CARDS } from "@/utils/strapi/sections/BannerCards";
 import { COLOR_CARD_LIST } from "@/utils/strapi/sections/ColorCardsList";
 import { CONTACT_TARGET_LIST } from "@/utils/strapi/sections/ContactTargetList";
+import { FAQ_SECTION } from "@/utils/strapi/sections/FAQ";
 import { GOOGLE_MAP } from "@/utils/strapi/sections/GoogleMap";
 import { HERO_SLIDER } from "@/utils/strapi/sections/HeroSlider";
 import { ICON_TEXT_LIST_IMAGE } from "@/utils/strapi/sections/IconTextListImage";
@@ -22,6 +23,7 @@ import type { AlertSection } from "@/utils/strapi/sections/Alert";
 import type { BannerCardsData } from "@/utils/strapi/sections/BannerCards";
 import type { ColorCardListData } from "@/utils/strapi/sections/ColorCardsList";
 import type { ContactTargetListSection } from "@/utils/strapi/sections/ContactTargetList";
+import type { FAQSection } from "@/utils/strapi/sections/FAQ";
 import type { GoogleMapSection } from "@/utils/strapi/sections/GoogleMap";
 import type { HeroSliderSection } from "@/utils/strapi/sections/HeroSlider";
 import type { IconTextListImageType } from "@/utils/strapi/sections/IconTextListImage";
@@ -64,6 +66,7 @@ export type ComponentSection =
   ${BANNER_CARDS}
   ${COLOR_CARD_LIST}
   ${CONTACT_TARGET_LIST}
+  ${FAQ_SECTION}
   ${GOOGLE_MAP}
   ${HERO_SLIDER}
   ${ICON_TEXT_LIST_IMAGE}

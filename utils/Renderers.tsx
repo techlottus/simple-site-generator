@@ -2,6 +2,7 @@ import Alert from "@/components/sections/Alert";
 import BannerCardsSection from "@/components/sections/BannerCards";
 import ColorCardList from "@/components/sections/ColorCardsList";
 import ContactTargetList from "@/components/sections/ContactTargetList";
+import FaqSection from "@/components/sections/FAQSection";
 import GoogleMap from "@/components/sections/GoogleMap";
 import HeroSlider from "@/components/sections/HeroSlider";
 import IconTextListImage from "@/components/sections/IconTextImageList";
@@ -18,7 +19,7 @@ import TestimonialSlider from "@/components/sections/TestimonialSlider";
 import VideosSection from "@/components/sections/VideosSection";
 import VideoImage from "@/components/sections/VideoImage";
 import WebError from "@/components/sections/WebError";
-import { type FC } from "react";
+import { Component, type FC } from "react";
 import CarouselCards from "@/components/sections/CarouselCards";
 
 type Renderer = {
@@ -30,6 +31,7 @@ const defaultRenderers: Renderer = {
   ComponentSectionsBannerCards: BannerCardsSection,
   ComponentSectionsColorCardList: ColorCardList,
   ComponentSectionsContactTargetList: ContactTargetList,
+  ComponentSectionsFaqSection: FaqSection,
   ComponentSectionsGoogleMap: GoogleMap,
   ComponentSectionsHeroSlider: HeroSlider,
   ComponentSectionsIconTextListImage: IconTextListImage,

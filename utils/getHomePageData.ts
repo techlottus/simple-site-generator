@@ -1,4 +1,5 @@
 import { fetchStrapiGraphQL } from "@/utils/getStrapi";
+import { FAQ_SECTION } from "./strapi/sections/FAQ";
 import { TEXT_CONTENT } from "@/utils/strapi/sections/TextContent";
 import { HERO_SLIDER } from "@/utils/strapi/sections/HeroSlider";
 import { OVERLAY_CARD_LIST } from "@/utils/strapi/sections/OverlayCardList";
@@ -95,9 +96,11 @@ export const getHomePageData = async () => {
 const HOME_PAGE_SECTIONS = `
 sections {
   type: __typename
+  ${FAQ_SECTION}
   ${HERO_SLIDER}
   ${OVERLAY_CARD_LIST}
   ${TEXT_CONTENT}
+
 }
 `;
 
