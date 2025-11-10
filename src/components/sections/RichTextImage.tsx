@@ -37,7 +37,7 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
     <section
       style={{ backgroundColor }}
       className={cn({
-        "w-p:py-10 w-t:py-6 w-d:py-10": !!backgroundColor,
+        "": !!backgroundColor,
       })}
     >
       <Container>
@@ -45,11 +45,11 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
           {
             title ? <h2 className={cn("font-headings font-bold desktop:text-10 desktop:leading-10 text-6 leading-6",{"text-surface-0":richTextImageContentVariant ==="light"})}>{title}</h2> : null
           }
-          <div className="grid w-p:grid-cols-1 w-t:grid-cols-1 grid-cols-2 gap-6">
+          <div className="grid mobile:grid-cols-1 tablet:grid-cols-1 grid-cols-2 gap-6">
             <div
               className={cn("my-auto", {
                 "w-d:hidden": imagePosition !== "left",
-                "w-p:hidden w-t:hidden": !title
+                "mobile:hidden tablet:hidden": !title
               })}
             >
               {renderImage()}
@@ -63,17 +63,26 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
                  content = {text} /> 
                   {
                     buttons && buttons?.length > 0 ?
-                      <div className="grid gap-6 w-d:grid-cols-2 w-t:grid-cols-2">
+                      <div className="grid gap-6 w-d:grid-cols-2 tablet:grid-cols-2">
                         {
                           buttons?.map((item, i) => {
                             return (
-                              <div key={`richTextImage-button-${i}`}>
+                              <div key={`richTextImage-button-${i}`} className="py-4">
                                 <Button 
-                                  variant={item?.variant === "outlined_negative" ? "outline" : "solid"}
+                                                type="button" 
+                                                intent='primary' 
+                                                size='sm' 
+                                                variant={'solid'}
+                                                className="" 
+                                                icon={item?.iconName} 
+                                                disabled={false}
+                                                onClick={() => router?.push(item?.CTA)}>{item?.label}</Button>
+                                {/* <Button 
+                                  variant={ "solid"}
                                   size={item?.size=="small"?"sm":"md"}
                                   icon={item?.iconName}
                                   className="w-full"
-                                  onClick={() => router?.push(item?.CTA)}>{item?.label}</Button>
+                                  onClick={() => router?.push(item?.CTA)}>{item?.label}</Button> */}
                               </div>
                             )
                           }
@@ -88,7 +97,7 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
             <div
               className={cn("my-auto", {
                 "w-d:hidden": imagePosition !== "right",
-                "w-p:hidden w-t:hidden": !!title
+                "mobile:hidden tablet:hidden": !!title
               })}
             >
               {renderImage()}

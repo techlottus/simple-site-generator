@@ -17,10 +17,10 @@ const BannerCardsSection: FC<BannerCardsData> = (props: BannerCardsData) => {
 
   const cardIcon = (cardIconItem?: CardIconData, i?: number) => (
     <div key={i} className="flex gap-2 items-center px-2.5  py-3 min-h-20	mobile:min-h-16  tablet:max-w-78 shadow-lg rounded-lg bg-white " >
-      <span className="material-symbols-outlined select-none !text-7" style={{ color: `${cardIconItem?.iconColor}` }} >
+      <span className="material-symbols-outlined select-none !text-6xl" style={{ color: `${cardIconItem?.iconColor}` }} >
         {cardIconItem?.IconName}
       </span>
-      <div className="-mb-5 grow" >
+      <div className=" grow" >
         <RichTextRenderer content={cardIconItem?.RichText} />
       </div>
     </div>)
@@ -36,7 +36,7 @@ const BannerCardsSection: FC<BannerCardsData> = (props: BannerCardsData) => {
       <div
         //@ts-ignore
         style={bgStyles}
-        className="bg-origin-border md:bg-center bg-no-repeat bg-cover py-16 mobile:bg-[image:var(--img-mobile)] tablet:bg-[image:var(--img-tablet)] bg-[image:var(--img-desk)]"
+        className="bg-origin-border md:bg-center bg-no-repeat bg-cover mobile:bg-[image:var(--img-mobile)] tablet:bg-[image:var(--img-tablet)] bg-[image:var(--img-desk)]"
       >  <ContentLayout classNames="w-full">
           <section id="banner-card-image" className="col-span-12 w-t:col-span-8 w-p:col-span-4 ">
             <div className="w-full h-full flex justify-center items-center mx-auto mobile:px-4 tablet:px-20 desktop:px-45 ">
@@ -50,8 +50,8 @@ const BannerCardsSection: FC<BannerCardsData> = (props: BannerCardsData) => {
                 type="button" 
                 intent='primary' 
                 size='sm' 
-                variant={button.variant}
-                className="w-full" 
+                variant={'solid'}
+                className="bg-neutral-900 border-neutral-950 hover:border-neutral-700 hover:bg-neutral-700 text-surface-0" 
                 icon={button?.iconName} 
                 disabled={false}
                 onClick={() => router?.push(button?.CTA)}>{button?.label}</Button>

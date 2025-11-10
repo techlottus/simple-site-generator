@@ -1,5 +1,6 @@
 import { ALERT } from "@/utils/strapi/sections/Alert";
 import { BANNER_CARDS } from "@/utils/strapi/sections/BannerCards";
+import { CARD_LIST } from "@/utils/strapi/sections/CardList";
 import { COLOR_CARD_LIST } from "@/utils/strapi/sections/ColorCardsList";
 import { CONTACT_TARGET_LIST } from "@/utils/strapi/sections/ContactTargetList";
 import { FAQ_SECTION } from "@/utils/strapi/sections/FAQ";
@@ -9,6 +10,7 @@ import { ICON_TEXT_LIST_IMAGE } from "@/utils/strapi/sections/IconTextListImage"
 import { INTRODUCTION_IMAGE_SECTION } from "@/utils/strapi/sections/IntroductionImage";
 import { LEADERBOARD } from "@/utils/strapi/sections/Leaderboard";
 import { LINK_LIST } from "@/utils/strapi/sections/LinkList";
+import { NUMBERS } from "./sections/Numbers";
 import { OUTSTANDING_LIST } from "@/utils/strapi/sections/OutstandingList";
 import { OVERLAY_CARD_LIST } from "@/utils/strapi/sections/OverlayCardList";
 import { RICH_TEXT_IMAGE } from "@/utils/strapi/sections/RichTextImage";
@@ -21,6 +23,7 @@ import { VIDEOS_SECTION } from "@/utils/strapi/sections/Videos";
 import { VIDEO_IMAGE } from "@/utils/strapi/sections/VideoImageSection";
 import type { AlertSection } from "@/utils/strapi/sections/Alert";
 import type { BannerCardsData } from "@/utils/strapi/sections/BannerCards";
+import type { CardListSection } from "@/utils/strapi/sections/CardList";
 import type { ColorCardListData } from "@/utils/strapi/sections/ColorCardsList";
 import type { ContactTargetListSection } from "@/utils/strapi/sections/ContactTargetList";
 import type { FAQSection } from "@/utils/strapi/sections/FAQ";
@@ -30,6 +33,7 @@ import type { IconTextListImageType } from "@/utils/strapi/sections/IconTextList
 import type { IntroductionImageSection } from "@/utils/strapi/sections/IntroductionImage";
 import type { LeaderboardSection } from "@/utils/strapi/sections/Leaderboard";
 import type { LinkListSection } from "@/utils/strapi/sections/LinkList";
+import type { StatisticsCard } from "@/utils/strapi/sections/Numbers";
 import type { OutstandingListSection } from "@/utils/strapi/sections/OutstandingList";
 import type { RichTextImageSection } from "@/utils/strapi/sections/RichTextImage";
 import type { RichTextImageBgImageSection } from "@/utils/strapi/sections/RichTextImageBgImage";
@@ -43,6 +47,7 @@ import type { VideoImageData } from "@/utils/strapi/sections/VideoImageSection";
 export type ComponentSection =
   | AlertSection
   | BannerCardsData
+  | CardListSection
   | ColorCardListData
   | ContactTargetListSection
   | GoogleMapSection
@@ -51,6 +56,7 @@ export type ComponentSection =
   | IntroductionImageSection
   | LeaderboardSection
   | LinkListSection
+  | StatisticsCard
   | OutstandingListSection
   | RichTextImageSection
   | RichTextImageBgImageSection
@@ -64,6 +70,7 @@ export type ComponentSection =
   export const SECTIONS = `
   ${ALERT}
   ${BANNER_CARDS}
+  ${CARD_LIST}
   ${COLOR_CARD_LIST}
   ${CONTACT_TARGET_LIST}
   ${FAQ_SECTION}
@@ -73,6 +80,7 @@ export type ComponentSection =
   ${INTRODUCTION_IMAGE_SECTION}
   ${LINK_LIST}
   ${LEADERBOARD}
+  ${NUMBERS}
   ${OUTSTANDING_LIST}
   ${OVERLAY_CARD_LIST}
   ${RICH_TEXT_IMAGE}

@@ -1,5 +1,6 @@
 import Alert from "@/components/sections/Alert";
 import BannerCardsSection from "@/components/sections/BannerCards";
+import CardList from "@/components/sections/CardList";
 import ColorCardList from "@/components/sections/ColorCardsList";
 import ContactTargetList from "@/components/sections/ContactTargetList";
 import FaqSection from "@/components/sections/FAQSection";
@@ -13,13 +14,14 @@ import OutstandingList from "@/components/sections/OutstandingList";
 import RichTextImage from "@/components/sections/RichTextImage";
 import RichTextImageBgImage from "@/components/sections/RichTextImageBgImage";
 import RichTextVideo from "@/components/sections/RichTextVideo";
+import StatisticsCardList from "@/components/sections/StatisticsCardList";
 import TableSection from "@/components/sections/TableSection";
 import TextContent from "@/components/sections/TextContent";
 import TestimonialSlider from "@/components/sections/TestimonialSlider";
 import VideosSection from "@/components/sections/VideosSection";
 import VideoImage from "@/components/sections/VideoImage";
 import WebError from "@/components/sections/WebError";
-import { Component, type FC } from "react";
+import { type FC } from "react";
 import CarouselCards from "@/components/sections/CarouselCards";
 
 type Renderer = {
@@ -31,6 +33,7 @@ const defaultRenderers: Renderer = {
   ComponentSectionsBannerCards: BannerCardsSection,
   ComponentSectionsColorCardList: ColorCardList,
   ComponentSectionsContactTargetList: ContactTargetList,
+  ComponentSectionsCardList: CardList,
   ComponentSectionsFaqSection: FaqSection,
   ComponentSectionsGoogleMap: GoogleMap,
   ComponentSectionsHeroSlider: HeroSlider,
@@ -38,6 +41,7 @@ const defaultRenderers: Renderer = {
   ComponentSectionsIntroductionImage: IntroductionImage,
   ComponentSectionsLeaderboard: Leaderboard,
   ComponentSectionsLinkList: LinkList,
+  ComponentSectionsStatisticsCardList: StatisticsCardList,
   ComponentSectionsContainerOutstandingList: OutstandingList,
   ComponentSectionsRichTextImage: RichTextImage,
   ComponentSectionsRichTextImageBgImage: RichTextImageBgImage,

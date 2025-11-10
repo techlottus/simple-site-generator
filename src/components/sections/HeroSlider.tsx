@@ -6,10 +6,10 @@ import { RichTextRenderer } from "@design-system/components/RichTextRenderer/Ric
 const HeroSlider = (props: HeroSliderSection) => {
   return (
     <section>
-      <Container classNames="w-p:!p-0 w-t:!p-0">
+      <Container classNames="mobile:!p-0 tablet:!p-0">
         {
           props?.title ?
-            <p className="font-headings font-bold text-10 w-t:text-6 w-p:text-6 leading-tight mb-6">{props?.title}</p>
+            <p className="font-headings font-bold text-10 tablet:text-6 mobile:text-6 leading-tight mb-6">{props?.title}</p>
             : null
         }
         {
@@ -17,10 +17,10 @@ const HeroSlider = (props: HeroSliderSection) => {
             <RichTextRenderer content= {props.heroDescription} />
             : null
         }
-        <div className="w-d:hidden">
+        <div className="desktop:hidden">
           <SliderPortalverseWrapper data={{ ...props }} mobile />
         </div>
-        <div className="w-p:hidden w-t:hidden">
+        <div className="mobile:hidden tablet:hidden">
           <SliderPortalverseWrapper data={{ ...props }} />
         </div>
       </Container>

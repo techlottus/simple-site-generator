@@ -1,0 +1,129 @@
+'use client';
+import { FC, memo, useState } from "react" 
+import cn from "classnames"
+import CountUp from "react-countup"
+import VisibilitySensor from "react-visibility-sensor"
+
+export type NumbersPortalverseconfig = {
+  maxNumber: any;
+  /**
+   * NumbersPortalverse icon optional
+   */
+  icon?: string;
+  /**
+   * NumbersPortalverse prefix icon optional
+   */
+  prefix?: string;
+
+  /**
+   * NumbersPortalverse suffix icon optional
+   */
+  suffix?: string;
+  /**
+   * NumbersPortalverse title
+   */
+  title?: string;
+  /**
+   * NumbersPortalverse body
+   */
+  body?: string;
+  /**
+   * NumbersPortalverse container to box-shadow and background true | false
+   */
+  container?: boolean;
+  isShadowColor?: boolean;
+  bordered?: boolean;
+  typeShadowColor?: string;
+  boxShadow?: boolean;
+  iconClassNames?: string;
+}
+
+export type NumbersPortalverseData = {
+  data: NumbersPortalverseconfig;
+  classNames?: any;
+  onAnimation?: any;
+  timer?: number;
+}
+
+
+const NumbersPortalverse: FC<NumbersPortalverseData> = memo(({data, classNames }: NumbersPortalverseData) => {
+
+  const [ finishedCount, setFinishedCount ] = useState<boolean>(false);
+
+  const customStyles = {
+    boxShadow: `5px 5px 0px 0px ${data?.typeShadowColor}`,
+  };
+
+  const iconsClassNames = data?.iconClassNames;
+
+  return <>
+    <div style={customStyles} className={cn("wrapperNumbers rounded-lg h-full", classNames, {
+      "shadow-30 bg-surface-0": data.boxShadow,
+      "border border-solid border-surface-300": data.bordered,
+      "rounded-lg": !!data?.isShadowColor,
+      "shadow-pastelBlueShadowLeft": data.isShadowColor === true && data.typeShadowColor === 'blue-pastel-left',
+      "shadow-pastelYellowShadowLeft": data.isShadowColor === true && data.typeShadowColor === 'yellow-pastel-left',
+      "shadow-pastelRedShadowLeft": data.isShadowColor === true && data.typeShadowColor === 'red-pastel-left',
+      "shadow-pastelGrayShadowLeft": data.isShadowColor === true && data.typeShadowColor === 'gray-pastel-left',
+      "shadow-blueShadowLeft": data.isShadowColor === true && data.typeShadowColor === 'blue-left',
+      "shadow-pastelBlueShadowRight": data.isShadowColor === true && data.typeShadowColor === 'blue-pastel-right',
+      "shadow-pastelYellowShadowRight": data.isShadowColor === true && data.typeShadowColor === 'yellow-pastel-right',
+      "shadow-pastelRedShadowRight": data.isShadowColor === true && data.typeShadowColor === 'red-pastel-right',
+      "shadow-pastelGrayShadowRight": data.isShadowColor === true && data.typeShadowColor === 'gray-pastel-right',
+      "shadow-blueShadowRight": data.isShadowColor === true && data.typeShadowColor === 'blue-right'
+    })}>
+      <div className= {cn("content-number flex items-center wrapperNumbers", classNames, {
+        "pt-0 px-0" : data.isShadowColor === false && data.container === false && data.bordered === false && data.boxShadow === false
+      })}>
+        {
+          data?.icon ?
+            <p
+              className={cn(
+                "icono material-symbols-outlined pr-2 text-10 text-surface-500 select-none",
+                `${iconsClassNames}`,
+                "mobile:hidden mobile:invisible tablet:invisible mobile:w-0 tablet:w-0"
+                )}
+            >
+              {data.icon}
+            </p>
+          : null
+        }
+        {
+          data?.prefix ?
+            <p className="font-headings !text-4xl tablet:text-2xl mobile:text-2xl font-bold leading-tight pr-2">{data?.prefix}</p>
+          : null
+        }
+        <CountUp separator="," start={0} end={data?.maxNumber} onEnd={() => setFinishedCount(true)} >
+          {({ countUpRef, start }) => (
+            <VisibilitySensor
+              onChange={(isVisible: boolean) => {
+                if(!isVisible || finishedCount) return;
+                start();
+              }}
+              delayedCall
+            >
+              <span className="font-headings !text-4xl tablet:text-2xl mobile:text-2xl font-bold leading-tight pr-2" ref={countUpRef} />
+            </VisibilitySensor>
+          )}
+        </CountUp>
+        <p className="font-headings !text-4xl tablet:text-2xl mobile:text-2xl font-bold leading-tight pr-2">{data.suffix}</p>
+      </div>
+      <div className= {cn("wrapperNumbers", classNames, {
+        "pt-0" : data.isShadowColor === false && data.container === false && data.bordered === false && data.boxShadow === false
+    })}>
+        {
+          data?.title ?
+            <p className="font-headings font-semibold !text-lg leading-5 mb-2">{data?.title}</p>
+          : null
+        }
+        {
+          data?.body ?
+            <p className="sub font-texts font-normal !text-base tablet:text-sm mobile:text-sm">{data?.body}</p>
+          : null
+        }
+      </div>
+    </div>
+  </>
+})
+
+export default NumbersPortalverse

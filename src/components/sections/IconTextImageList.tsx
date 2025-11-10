@@ -10,34 +10,34 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
   return (
     <section>
       <Container>
-        <section className="w-d:hidden">
+        <section className="desktop:hidden">
           {
             title ?
               <div>
-                <h3 className="font-headings text-10 font-bold leading-12 w-t:text-8.5 w-p:text-6 w-d:mb-6">{title}</h3>
+                <h3 className="font-headings text-4xl font-bold leading-12 tablet:text-3xl mobile:text-2xl desktop:mb-6">{title}</h3>
               </div>
               : null
           }
           {
             desc ?
-              <div className="w-d:mb-12">
+              <div className="desktop:mb-12">
                 <RichTextRenderer content={desc} />
               </div>
               : null
           }
         </section>
-        <section className={cn('flex gap-6 w-t:flex-col-reverse w-p:flex-col-reverse', { "flex-row-reverse": positionImage === "left" })}>
-          <div className="w-d:w-1/2 my-auto">
+        <section className={cn('flex gap-6 tablet:flex-col-reverse mobile:flex-col-reverse', { "flex-row-reverse": positionImage === "left" })}>
+          <div className="desktop:w-1/2 my-auto">
             {
               title ?
-                <div className="w-p:hidden w-t:hidden">
-                  <h3 className="font-headings text-10 font-bold leading-12 w-t:text-8.5 w-p:text-6 w-d:mb-6">{title}</h3>
+                <div className="mobile:hidden tablet:hidden">
+                  <h3 className="font-headings text-4xl font-bold leading-12 tablet:text-3xl mobile:text-2xl desktop:mb-6">{title}</h3>
                 </div>
                 : null
             }
             {
               desc ?
-                <div className="w-d:mb-12 w-p:hidden w-t:hidden">
+                <div className="desktop:mb-12 mobile:hidden tablet:hidden">
                   <RichTextRenderer content={desc} />
                 </div>
                 : null
@@ -48,11 +48,11 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
                   iconTextList?.map((item: any, i: number) =>
                     <div key={`icon-${i}`} className="flex gap-6">
                       <div className="my-auto">
-                        <span className={cn("material-symbols-outlined text-primary-500 !text-16", iconClassNames)}>{item?.icon}</span>
+                        <span className={cn("material-symbols-outlined text-primary-500 !text-5xl", iconClassNames)}>{item?.icon}</span>
                       </div>
                       <div className="">
                         <p className="font-headings font-bold">{item?.title}</p>
-                        <RichTextRenderer content={item?.description} />
+                        <RichTextRenderer content={item?.text} />
                       </div>
                     </div>
                   )
@@ -60,10 +60,10 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
                 : null
             }
           </div>
-          <div className="w-d:w-1/2">
+          <div className="desktop:w-1/2">
             {
               imageDesk ?
-                <div className={cn("w-t:hidden w-p:hidden flex justify-start", { "justify-end": positionImage === "right" || !positionImage })}>
+                <div className={cn("tablet:hidden mobile:hidden flex justify-start", { "justify-end": positionImage === "right" || !positionImage })}>
                   <img
                     alt={""}
                     src={imageDesk?.data?.attributes?.url}
@@ -73,7 +73,7 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
             }
             {
               tabletImage ?
-                <div className="w-d:hidden w-p:hidden">
+                <div className="desktop:hidden mobile:hidden">
                   <img
                     alt={""}
                     src={tabletImage?.data?.attributes?.url}
@@ -84,7 +84,7 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
             }
             {
               mobileImage ?
-                <div className="w-d:hidden w-t:hidden">
+                <div className="desktop:hidden tablet:hidden">
                   <img
                     alt={""}
                     src={mobileImage?.data?.attributes?.url}
