@@ -5,9 +5,9 @@ const PageContent = (props: PageData) => {
   const pageBlocks = props?.attributes?.sections;
   const seo = props?.attributes?.seo_section;
   return ( <div className="flex flex-col mobile:space-y-12 tablet:space-y-12 desktop:space-y-18">
-        {pageBlocks?.length > 0 ? (
+        {/* {pageBlocks?.length > 0 ? (
           <ContentGenerator blocks={pageBlocks} />
-        ) : null}
+        ) : null} */}
       </div>)
     // <Fragment>
       {/* <Head>
