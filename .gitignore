@@ -51,3 +51,4 @@ tailwindBase.js
 public/favicon.ico
 
 package-lock.json
+yarn.lock
