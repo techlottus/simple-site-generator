@@ -51,7 +51,7 @@ const BannerCardsSection: FC<BannerCardsData> = (props: BannerCardsData) => {
                 intent='primary' 
                 size='sm' 
                 variant={'solid'}
-                className="bg-neutral-900 border-neutral-950 hover:border-neutral-700 hover:bg-neutral-700 text-surface-0" 
+                className="bg-surface-900 border-surface-950 hover:border-surface-950 hover:bg-surface-0 hover:text-surface-950 focus:border-surface-950 focus:bg-surface-0 focus:text-surface-950 text-surface-0"
                 icon={button?.iconName} 
                 disabled={false}
                 onClick={() => router?.push(button?.CTA)}>{button?.label}</Button>

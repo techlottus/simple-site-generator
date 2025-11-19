@@ -32,7 +32,7 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
       </div>
     );
   };
-  
+
   return (
     <section
       style={{ backgroundColor }}
@@ -43,7 +43,7 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
       <Container>
         <div className="flex flex-col space-y-6">
           {
-            title ? <h2 className={cn("font-headings font-bold desktop:text-10 desktop:leading-10 text-6 leading-6",{"text-surface-0":richTextImageContentVariant ==="light"})}>{title}</h2> : null
+            title ? <h2 className={cn("font-headings font-bold desktop:text-10 desktop:leading-10 text-6 leading-6", { "text-surface-0": richTextImageContentVariant === "light" })}>{title}</h2> : null
           }
           <div className="grid mobile:grid-cols-1 tablet:grid-cols-1 grid-cols-2 gap-6">
             <div
@@ -58,9 +58,9 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
               text
                 ?
                 <div className="my-auto">
-                 <RichTextRenderer 
-                 className={richTextImageContentVariant === "light" ? "text-surface-100" : "text-surface-900"} 
-                 content = {text} /> 
+                  <RichTextRenderer
+                    className={richTextImageContentVariant === "light" ? "text-surface-100" : "text-surface-900"}
+                    content={text} />
                   {
                     buttons && buttons?.length > 0 ?
                       <div className="grid gap-6 w-d:grid-cols-2 tablet:grid-cols-2">
@@ -68,21 +68,24 @@ const RichTextImage: FC<RichTextImageSection> = (props: RichTextImageSection) =>
                           buttons?.map((item, i) => {
                             return (
                               <div key={`richTextImage-button-${i}`} className="py-4">
-                                <Button 
-                                                type="button" 
-                                                intent='primary' 
-                                                size='sm' 
-                                                variant={'solid'}
-                                                className="" 
-                                                icon={item?.iconName} 
-                                                disabled={false}
-                                                onClick={() => router?.push(item?.CTA)}>{item?.label}</Button>
-                                {/* <Button 
-                                  variant={ "solid"}
-                                  size={item?.size=="small"?"sm":"md"}
-                                  icon={item?.iconName}
-                                  className="w-full"
-                                  onClick={() => router?.push(item?.CTA)}>{item?.label}</Button> */}
+                                {item.variant == "primary" ? <Button
+                                  type="button"
+                                  intent='primary'
+                                  size='sm'
+                                  variant={'solid'}
+                                  className="bg-surface-900 border-surface-950 hover:border-surface-950 hover:bg-surface-0 hover:text-surface-950 focus:border-surface-950 focus:bg-surface-0 focus:text-surface-950 text-surface-0"
+                                  disabled={false}
+                                  onClick={() => router?.push(item?.CTA)}>{item?.label}</Button> :
+                                  <Button
+                                    id="cta-banner"
+                                    type="button"
+                                    intent='primary'
+                                    size='sm'
+                                    variant={'solid'}
+                                    className="bg-transparent border-surface-50 hover:border-surface-950 hover:bg-surface-950 hover:text-surface-0 text-surface-0"
+                                    disabled={false}
+                                    onClick={() => router?.push(item?.CTA)}>{item?.label}</Button>
+                                }
                               </div>
                             )
                           }

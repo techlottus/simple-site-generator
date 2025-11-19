@@ -35,9 +35,11 @@ const formatData = (
   formattedCard.prefix = strapiData?.prefix;
   formattedCard.suffix = strapiData?.suffix;
   formattedCard.typeShadowColor = strapiData?.color;
-  formattedCard.isShadowColor = !!strapiData?.color;
+  // formattedCard.isShadowColor = !!strapiData?.color;
   formattedCard.icon = strapiData?.iconName;
-
+  formattedCard.isShadowColor = strapiData?.variant == "shadow" || strapiData.variant == "stroke"
+  formattedCard.bordered = strapiData?.variant == "shadow" || strapiData.variant == "stroke"
+  formattedCard.boxShadow = strapiData?.variant == "shadow" || strapiData.variant == "stroke"
   return formattedCard;
 };
 

@@ -9,7 +9,7 @@ const HeroSlider = (props: HeroSliderSection) => {
       <Container classNames="mobile:!p-0 tablet:!p-0">
         {
           props?.title ?
-            <p className="font-headings font-bold text-10 tablet:text-6 mobile:text-6 leading-tight mb-6">{props?.title}</p>
+            <p className="font-headings font-bold text-6xl tablet:text-2xl mobile:text-2xl leading-tight mb-6">{props?.title}</p>
             : null
         }
         {

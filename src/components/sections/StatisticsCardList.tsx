@@ -19,7 +19,7 @@ const StatisticsCardList = (props: StatisticsCardListSection) => {
                       <div key={i}>
                         <NumbersPortalverseWrapper
                           data={card}
-                          classNames="p-2 justify-center"
+                          classNames="justify-start"
                         />
                       </div>
                     );

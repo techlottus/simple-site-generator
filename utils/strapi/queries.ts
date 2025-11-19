@@ -1,4 +1,5 @@
 import { ALERT } from "@/utils/strapi/sections/Alert";
+import { BANNER } from "./sections/Banner";
 import { BANNER_CARDS } from "@/utils/strapi/sections/BannerCards";
 import { CARD_LIST } from "@/utils/strapi/sections/CardList";
 import { COLOR_CARD_LIST } from "@/utils/strapi/sections/ColorCardsList";
@@ -22,6 +23,7 @@ import { TESTIMONIAL_SLIDER } from "@/utils/strapi/sections/TestimonialSlider";
 import { VIDEOS_SECTION } from "@/utils/strapi/sections/Videos";
 import { VIDEO_IMAGE } from "@/utils/strapi/sections/VideoImageSection";
 import type { AlertSection } from "@/utils/strapi/sections/Alert";
+import type { BannerData } from "./sections/Banner";
 import type { BannerCardsData } from "@/utils/strapi/sections/BannerCards";
 import type { CardListSection } from "@/utils/strapi/sections/CardList";
 import type { ColorCardListData } from "@/utils/strapi/sections/ColorCardsList";
@@ -46,10 +48,12 @@ import type { VideoImageData } from "@/utils/strapi/sections/VideoImageSection";
 
 export type ComponentSection =
   | AlertSection
+  | BannerData
   | BannerCardsData
   | CardListSection
   | ColorCardListData
   | ContactTargetListSection
+  | FAQSection
   | GoogleMapSection
   | HeroSliderSection
   | IconTextListImageType
@@ -69,6 +73,7 @@ export type ComponentSection =
 
   export const SECTIONS = `
   ${ALERT}
+  ${BANNER}
   ${BANNER_CARDS}
   ${CARD_LIST}
   ${COLOR_CARD_LIST}

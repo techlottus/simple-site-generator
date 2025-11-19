@@ -31,6 +31,7 @@ export type NumbersPortalverseconfig = {
    * NumbersPortalverse container to box-shadow and background true | false
    */
   container?: boolean;
+  variant?: "neutral" | "stroke" | "shadow";
   isShadowColor?: boolean;
   bordered?: boolean;
   typeShadowColor?: string;
@@ -57,7 +58,7 @@ const NumbersPortalverse: FC<NumbersPortalverseData> = memo(({data, classNames }
   const iconsClassNames = data?.iconClassNames;
 
   return <>
-    <div style={customStyles} className={cn("wrapperNumbers rounded-lg h-full", classNames, {
+    <div style={data?.boxShadow ? customStyles: undefined} className={cn("wrapperNumbers rounded-lg h-full", classNames, {
       "shadow-30 bg-surface-0": data.boxShadow,
       "border border-solid border-surface-300": data.bordered,
       "rounded-lg": !!data?.isShadowColor,
@@ -72,16 +73,22 @@ const NumbersPortalverse: FC<NumbersPortalverseData> = memo(({data, classNames }
       "shadow-pastelGrayShadowRight": data.isShadowColor === true && data.typeShadowColor === 'gray-pastel-right',
       "shadow-blueShadowRight": data.isShadowColor === true && data.typeShadowColor === 'blue-right'
     })}>
-      <div className= {cn("content-number flex items-center wrapperNumbers", classNames, {
-        "pt-0 px-0" : data.isShadowColor === false && data.container === false && data.bordered === false && data.boxShadow === false
+      <div className= {cn("content-number flex wrapperNumbers", classNames, {
+        "pt-0 px-0" : data.isShadowColor === false && data.container === false && data.bordered === false && data.boxShadow === false,
+        "items-center": data?.isShadowColor || data?.bordered,
+        "items-start" :  !data?.isShadowColor || !data?.bordered
       })}>
         {
           data?.icon ?
             <p
               className={cn(
-                "icono material-symbols-outlined pr-2 text-10 text-surface-500 select-none",
+                "icono material-symbols-outlined pr-2 !text-6xl select-none",
                 `${iconsClassNames}`,
-                "mobile:hidden mobile:invisible tablet:invisible mobile:w-0 tablet:w-0"
+                "mobile:hidden mobile:invisible tablet:invisible mobile:w-0 tablet:w-0",
+                {
+                  "text-surface-500": data.isShadowColor,
+                  "text-primary-500" : !data.isShadowColor
+                }
                 )}
             >
               {data.icon}
@@ -90,7 +97,7 @@ const NumbersPortalverse: FC<NumbersPortalverseData> = memo(({data, classNames }
         }
         {
           data?.prefix ?
-            <p className="font-headings !text-4xl tablet:text-2xl mobile:text-2xl font-bold leading-tight pr-2">{data?.prefix}</p>
+            <p className="font-headings !text-6xl tablet:text-4xl mobile:text-2xl font-bold leading-tight pr-2">{data?.prefix}</p>
           : null
         }
         <CountUp separator="," start={0} end={data?.maxNumber} onEnd={() => setFinishedCount(true)} >
@@ -102,11 +109,11 @@ const NumbersPortalverse: FC<NumbersPortalverseData> = memo(({data, classNames }
               }}
               delayedCall
             >
-              <span className="font-headings !text-4xl tablet:text-2xl mobile:text-2xl font-bold leading-tight pr-2" ref={countUpRef} />
+              <span className="font-headings !text-6xl tablet:text-4xl mobile:text-2xl font-bold leading-tight pr-2" ref={countUpRef} />
             </VisibilitySensor>
           )}
         </CountUp>
-        <p className="font-headings !text-4xl tablet:text-2xl mobile:text-2xl font-bold leading-tight pr-2">{data.suffix}</p>
+        <p className="font-headings !text-4xl tablet:text-4xl mobile:text-2xl font-bold leading-tight pr-2">{data.suffix}</p>
       </div>
       <div className= {cn("wrapperNumbers", classNames, {
         "pt-0" : data.isShadowColor === false && data.container === false && data.bordered === false && data.boxShadow === false

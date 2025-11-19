@@ -14,7 +14,7 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
           {
             title ?
               <div>
-                <h3 className="font-headings text-4xl font-bold leading-12 tablet:text-3xl mobile:text-2xl desktop:mb-6">{title}</h3>
+                <h3 className="font-headings text-6xl font-bold leading-12 tablet:text-4xl mobile:text-2xl desktop:mb-6">{title}</h3>
               </div>
               : null
           }
@@ -31,7 +31,7 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
             {
               title ?
                 <div className="mobile:hidden tablet:hidden">
-                  <h3 className="font-headings text-4xl font-bold leading-12 tablet:text-3xl mobile:text-2xl desktop:mb-6">{title}</h3>
+                  <h3 className="font-headings text-6xl font-bold leading-12 tablet:text-4xl mobile:text-2xl desktop:mb-6">{title}</h3>
                 </div>
                 : null
             }
@@ -42,7 +42,8 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
                 </div>
                 : null
             }
-            {
+            <div className="flex flex-col gap-5">
+                          {
               iconTextList ?
                 iconTextList?.length > 0 ?
                   iconTextList?.map((item: any, i: number) =>
@@ -59,6 +60,8 @@ const IconTextListImage: FC<IconTextListImageType> = (props: IconTextListImageTy
                   : null
                 : null
             }
+            </div>
+
           </div>
           <div className="desktop:w-1/2">
             {

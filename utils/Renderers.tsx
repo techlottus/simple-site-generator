@@ -1,4 +1,5 @@
 import Alert from "@/components/sections/Alert";
+import Banner from "@/components/sections/Banner";
 import BannerCardsSection from "@/components/sections/BannerCards";
 import CardList from "@/components/sections/CardList";
 import ColorCardList from "@/components/sections/ColorCardsList";
@@ -30,6 +31,7 @@ type Renderer = {
 
 const defaultRenderers: Renderer = {
   ComponentSectionsAlert: Alert,
+  ComponentSectionsBanner : Banner ,
   ComponentSectionsBannerCards: BannerCardsSection,
   ComponentSectionsColorCardList: ColorCardList,
   ComponentSectionsContactTargetList: ContactTargetList,
