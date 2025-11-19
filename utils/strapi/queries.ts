@@ -23,7 +23,7 @@ import { TESTIMONIAL_SLIDER } from "@/utils/strapi/sections/TestimonialSlider";
 import { VIDEOS_SECTION } from "@/utils/strapi/sections/Videos";
 import { VIDEO_IMAGE } from "@/utils/strapi/sections/VideoImageSection";
 import type { AlertSection } from "@/utils/strapi/sections/Alert";
-import type { BannerData } from "./sections/Banner";
+import type { BannerSection } from "./sections/Banner";
 import type { BannerCardsData } from "@/utils/strapi/sections/BannerCards";
 import type { CardListSection } from "@/utils/strapi/sections/CardList";
 import type { ColorCardListData } from "@/utils/strapi/sections/ColorCardsList";
@@ -35,7 +35,7 @@ import type { IconTextListImageType } from "@/utils/strapi/sections/IconTextList
 import type { IntroductionImageSection } from "@/utils/strapi/sections/IntroductionImage";
 import type { LeaderboardSection } from "@/utils/strapi/sections/Leaderboard";
 import type { LinkListSection } from "@/utils/strapi/sections/LinkList";
-import type { StatisticsCard } from "@/utils/strapi/sections/Numbers";
+import type { StatisticsCardListSection } from "@/utils/strapi/sections/Numbers";
 import type { OutstandingListSection } from "@/utils/strapi/sections/OutstandingList";
 import type { RichTextImageSection } from "@/utils/strapi/sections/RichTextImage";
 import type { RichTextImageBgImageSection } from "@/utils/strapi/sections/RichTextImageBgImage";
@@ -48,7 +48,7 @@ import type { VideoImageData } from "@/utils/strapi/sections/VideoImageSection";
 
 export type ComponentSection =
   | AlertSection
-  | BannerData
+  | BannerSection
   | BannerCardsData
   | CardListSection
   | ColorCardListData
@@ -60,7 +60,7 @@ export type ComponentSection =
   | IntroductionImageSection
   | LeaderboardSection
   | LinkListSection
-  | StatisticsCard
+  | StatisticsCardListSection
   | OutstandingListSection
   | RichTextImageSection
   | RichTextImageBgImageSection
