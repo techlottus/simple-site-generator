@@ -23,7 +23,6 @@ export const getLayout = async (name = "Default") => {
     LAYOUTS,
     { name }
   );
-  console.log("Layout response:", response.layouts?.data[0].attributes.footer.data.attributes.footerSection);
   return response?.layouts?.data[0];
 };
 

@@ -14,8 +14,8 @@ const FooterLogo: FC<footerLogo> = ({ onClickLogo, position }: footerLogo) => {
       'justify-end': position === 'right',
       'justify-start': position === 'left',
      })}>
-      <div className="w-p:hidden w-36 h-10 bg-logo bg-cover bg-center" onClick={onClickLogo}> </div>
-      <div className="w-d:hidden w-t:hidden w-23 h-6 bg-logo bg-cover bg-center" onClick={onClickLogo}> </div>
+      <div className="w-p:hidden w-36 h-10 bg-logoCap bg-cover bg-center" onClick={onClickLogo}> </div>
+      <div className="w-d:hidden w-t:hidden w-23 h-6 bg-logoCap bg-cover bg-center" onClick={onClickLogo}> </div>
     </div>
   );
 }
