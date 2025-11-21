@@ -102,7 +102,6 @@ export default async function Page({ params }: PageProps) {
   if (!pageData) {
     notFound();
   }
-
   return (
     <DynamicPageLayout layoutData={pageData?.data?.attributes?.layout?.data || params.layoutData}>
       <Fragment>

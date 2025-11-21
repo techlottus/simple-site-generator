@@ -5,9 +5,9 @@ const PageContent = (props: PageData) => {
   const pageBlocks = props?.attributes?.sections;
   const seo = props?.attributes?.seo_section;
   return ( <div className="flex flex-col mobile:space-y-12 tablet:space-y-12 desktop:space-y-18">
-        {/* {pageBlocks?.length > 0 ? (
+        {pageBlocks?.length > 0 ? (
           <ContentGenerator blocks={pageBlocks} />
-        ) : null} */}
+        ) : null}
       </div>)
     // <Fragment>
       {/* <Head>
@@ -18,27 +18,27 @@ const PageContent = (props: PageData) => {
         // <meta property="image" content={seo?.metaImage?.data?.attributes?.url} />{/* metaImage */}
         {/* metaSocial */}
         {/* ARRAY COULD BRING FACEBOOK OR TWITTER */}
-        {
-          seo?.metaSocial?.map((metasocial) => {
-            if (metasocial?.socialNetwork === "Facebook") {
-              return (
-                <>
-                  <meta property="og:title" content={metasocial?.title} />
-                  <meta property="og:description" content={metasocial?.description} />
-                  <meta property="og:image" content={metasocial?.image?.data?.attributes?.url} />
-                </>
-              )
-            } if (metasocial?.socialNetwork === "Twitter") {
-              return (
-                <>
-                  <meta property="twitter:title" content={metasocial?.title} />
-                  <meta property="twitter:description" content={metasocial?.description} />
-                  <meta property="twitter:image" content={metasocial?.image?.data?.attributes?.url} />
-                </>
-              )
-            }
-          })
-        }
+        // {
+        //   seo?.metaSocial?.map((metasocial) => {
+        //     if (metasocial?.socialNetwork === "Facebook") {
+        //       return (
+        //         <>
+        //           <meta property="og:title" content={metasocial?.title} />
+        //           <meta property="og:description" content={metasocial?.description} />
+        //           <meta property="og:image" content={metasocial?.image?.data?.attributes?.url} />
+        //         </>
+        //       )
+        //     } if (metasocial?.socialNetwork === "Twitter") {
+        //       return (
+        //         <>
+        //           <meta property="twitter:title" content={metasocial?.title} />
+        //           <meta property="twitter:description" content={metasocial?.description} />
+        //           <meta property="twitter:image" content={metasocial?.image?.data?.attributes?.url} />
+        //         </>
+        //       )
+        //     }
+        //   })
+        // }
         {/* keywords */}
         // <meta name="keywords" content={seo?.keywords} />
         {/* metaRobots */}

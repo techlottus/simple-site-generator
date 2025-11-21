@@ -9,21 +9,15 @@ export type Layout = {
   }
 }
 export type LayoutAttributes = {
-  data: {
-    attributes: {
-      name: string
-      footer: FooterData
-      header: MenuType
-    }
-    
-    data: Array< {
-      attributes: {
-        name: string
-        footer : FooterData
-      }
-    }>
+  data:{
+  attributes: {
+    name: string
+    footer: FooterData
+    header: MenuType
   }
 }
+}
+
 
 
 export const getLayout = async (name = "Default") => {
@@ -47,7 +41,7 @@ query Layouts($name: String) {
           data {
             attributes {
               name
-              footerSection {
+              footerSection(pagination: { start: 0, limit: -1 }) {
                 title
                 logo
                 phone {

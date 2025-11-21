@@ -35,11 +35,11 @@ const FooterSection: FC<FooterSect> = ({
         }
         <div className="flex justify-between w-full">
           {/* social media */}
-          <div className="flex w-p:flex-wrap gap-9 items-center">
+          <div className="flex mobile:flex-wrap gap-9 items-center">
             {
               social_medias?.data && social_medias?.data.map((item: any, i: number) => <Link key={`social-${i}`} href={item.attributes.href} passHref target={"_blank"}>
 
-                <Icon iconName={item.attributes.icon_name} className="w-8 h-8 text-surface-500 w-p:text-balck" />
+                <Icon iconName={item.attributes.icon_name} className="w-8 h-8 text-surface-500 mobile:text-black" />
               </Link>)
             }
             {
@@ -55,7 +55,7 @@ const FooterSection: FC<FooterSect> = ({
       }
       {/* columns */}
       {
-        columns?.length > 0 && <div className="w-full p-6 w-t:hidden w-p:hidden flex gap-24 border-b  border-0 border-solid border-surface-300">
+        columns?.length > 0 && <div className="w-full p-6 w-t:hidden mobile:hidden flex gap-24 border-b  border-0 border-solid border-surface-300">
         {
           columns?.map((column: any, i: number) => <div key={`footer-column-${i}`} className="flex flex-col gap-6 w-64">
             {
@@ -101,12 +101,12 @@ const FooterSection: FC<FooterSect> = ({
       }
       {/* link */}
       {
-        links?.length > 0 && <div className="w-full p-6 w-t:p-2 w-p:p-4 flex justify-center">
+        links?.length > 0 && <div className="w-full p-6 w-t:p-2 mobile:p-4 flex justify-between">
           {
             links.map((link, i) => {
               return <>
                 <Link key={`link-${i}`} href={link.href} passHref target={link.target}>
-                  <p className="font-texts font-normal italic text-sm leading-4 text-surface-800 ">{link.text}</p>
+                  <p className="font-texts font-normal text-sm leading-4 text-surface-800 ">{link.text}</p>
                 </Link>
               </>
             })

@@ -66,11 +66,12 @@ export type FooterSection = {
 
 }
 export type FooterData = {
+  data: {
   attributes: {
     name: string;
     footerSection: Array<FooterSection>
   };
-};
+};};
 
 export type Footers = {
   footers: {
