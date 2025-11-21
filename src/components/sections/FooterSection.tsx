@@ -101,12 +101,12 @@ const FooterSection: FC<FooterSect> = ({
       }
       {/* link */}
       {
-        links?.length > 0 && <div className="w-full p-6 w-t:p-2 mobile:p-4 flex justify-center">
+        links?.length > 0 && <div className="w-full p-6 w-t:p-2 mobile:p-4 flex justify-between">
           {
             links.map((link, i) => {
               return <>
                 <Link key={`link-${i}`} href={link.href} passHref target={link.target}>
-                  <p className="font-texts font-normal italic text-sm leading-4 text-surface-800 ">{link.text}</p>
+                  <p className="font-texts font-normal text-sm leading-4 text-surface-800 ">{link.text}</p>
                 </Link>
               </>
             })
