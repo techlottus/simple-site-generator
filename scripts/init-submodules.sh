@@ -11,8 +11,14 @@ fi
 
 git submodule sync
 
-# 🚀 Inicializar y actualizar submódulo usando la rama definida en .gitmodules (develop)
+# Inicializar y actualizar submódulo usando la rama definida en .gitmodules (develop)
 git submodule update --init --remote --recursive
+
+# Forzar checkout a develop 
+echo "apuntar a 'develop'..."
+git -C src/design-system fetch origin develop
+git -C src/design-system checkout develop
+git -C src/design-system pull origin develop
 
 # Instalar dependencias dentro del submódulo
 npm install --prefix src/design-system
