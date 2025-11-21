@@ -9,11 +9,13 @@ export type Layout = {
   }
 }
 export type LayoutAttributes = {
+  data:{
   attributes: {
     name: string
     footer: FooterData
     header: MenuType
   }
+}
 }
 
 
